@@ -43,12 +43,6 @@ export function OrderCreateFulfillmentForm({
     line_item_id: order.items.map((i) => i.id),
   })
 
-  const itemReservedQuantitiesMap = useMemo(
-    () =>
-      new Map((reservations || []).map((r) => [r.line_item_id, r.quantity])),
-    [reservations]
-  )
-
   const [fulfillableItems, setFulfillableItems] = useState(() =>
     (order.items || []).filter(
       (item) =>
@@ -358,9 +352,7 @@ export function OrderCreateFulfillmentForm({
                             disabled={
                               requiresShipping && !isShippingProfileMatching
                             }
-                            itemReservedQuantitiesMap={
-                              itemReservedQuantitiesMap
-                            }
+                            reservations={reservations}
                           />
                         )
                       })}

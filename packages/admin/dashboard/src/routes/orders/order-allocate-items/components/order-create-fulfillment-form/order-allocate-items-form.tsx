@@ -19,6 +19,7 @@ import { useStockLocations } from "../../../../../hooks/api/stock-locations"
 import { queryClient } from "../../../../../lib/query-client"
 import { AllocateItemsSchema } from "./constants"
 import { OrderAllocateItemsItem } from "./order-allocate-items-item"
+import { checkInventoryKit } from "./utls"
 
 type OrderAllocateItemsFormProps = {
   order: AdminOrder
@@ -81,14 +82,19 @@ export function OrderAllocateItemsForm({ order }: OrderAllocateItemsFormProps) {
         return
       }
 
-      const promises = payload.map(([itemId, inventoryId, quantity]) =>
+      const promises = payload.map(([itemId, inventoryId, quantity]) => {
+        const item = itemsToAllocate.find((i) => i.id === itemId)
+        const variantInventoryItem = item?.variant?.inventory_items?.find(
+          (i) => i.inventory_item_id === inventoryId
+        )
+
         allocateItems({
           location_id: data.location_id,
-          inventory_item_id: inventoryId,
-          line_item_id: itemId,
-          quantity,
+          inventory_item_id: inventoryId as string,
+          line_item_id: itemId as string,
+          quantity: Number(quantity),
         })
-      )
+      })
 
       /**
        * TODO: we should have bulk endpoint for this so this is executed in a workflow and can be reverted
@@ -313,7 +319,7 @@ function defaultAllocations(items: OrderLineItemDTO) {
   const ret = {}
 
   items.forEach((item) => {
-    const hasInventoryKit = item.variant?.inventory_items.length > 1
+    const hasInventoryKit = checkInventoryKit(item)
 
     ret[
       hasInventoryKit
