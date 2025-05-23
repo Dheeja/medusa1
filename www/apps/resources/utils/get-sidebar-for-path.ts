@@ -76,6 +76,7 @@ const sidebarMappings: {
       "/references/event-service",
       "/references/cache-service",
       "/references/file-service",
+      "/references/analytics",
     ],
   },
   {

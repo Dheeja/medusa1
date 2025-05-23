@@ -104,28 +104,25 @@ export default class FileModuleService implements FileTypes.IFileModuleService {
     config?: FindConfig<FileDTO>,
     sharedContext?: Context
   ): Promise<FileDTO[]> {
-    const id = Array.isArray(filters?.id) ? filters?.id?.[0] : filters?.id
-    if (!id) {
+    if (!filters?.id) {
       throw new MedusaError(
         MedusaError.Types.INVALID_DATA,
         "Listing of files is only supported when filtering by ID."
       )
     }
 
-    const res = await this.fileProviderService_.getPresignedDownloadUrl({
-      fileKey: id,
-    })
+    const ids = Array.isArray(filters?.id) ? filters?.id : [filters?.id]
 
-    if (!res) {
-      return []
-    }
+    const res = await Promise.all(
+      ids.map(async (id) => {
+        const res = await this.fileProviderService_.getPresignedDownloadUrl({
+          fileKey: id,
+        })
+        return { id, url: res }
+      })
+    )
 
-    return [
-      {
-        id,
-        url: res,
-      },
-    ]
+    return res
   }
 
   async listAndCountFiles(
@@ -133,31 +130,25 @@ export default class FileModuleService implements FileTypes.IFileModuleService {
     config?: FindConfig<FileDTO>,
     sharedContext?: Context
   ): Promise<[FileDTO[], number]> {
-    const id = Array.isArray(filters?.id) ? filters?.id?.[0] : filters?.id
-    if (!id) {
+    if (!filters?.id) {
       throw new MedusaError(
         MedusaError.Types.INVALID_DATA,
-        "Listing and counting of files is only supported when filtering by ID."
+        "Listing of files is only supported when filtering by ID."
       )
     }
 
-    const res = await this.fileProviderService_.getPresignedDownloadUrl({
-      fileKey: id,
-    })
+    const ids = Array.isArray(filters?.id) ? filters?.id : [filters?.id]
 
-    if (!res) {
-      return [[], 0]
-    }
+    const res = await Promise.all(
+      ids.map(async (id) => {
+        const res = await this.fileProviderService_.getPresignedDownloadUrl({
+          fileKey: id,
+        })
+        return { id, url: res }
+      })
+    )
 
-    return [
-      [
-        {
-          id,
-          url: res,
-        },
-      ],
-      1,
-    ]
+    return [res, res.length]
   }
 
   /**

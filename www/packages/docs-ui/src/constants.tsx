@@ -176,6 +176,11 @@ export const navDropdownItems: NavigationItem[] = [
         items: [
           {
             type: "link",
+            title: "Analytics",
+            link: "/resources/infrastructure-modules/analytics",
+          },
+          {
+            type: "link",
             title: "Cache",
             link: "/resources/infrastructure-modules/cache",
           },

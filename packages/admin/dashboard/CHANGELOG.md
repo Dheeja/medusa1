@@ -1,5 +1,17 @@
 # @medusajs/dashboard
 
+## 2.8.3
+
+### Patch Changes
+
+- [#12476](https://github.com/medusajs/medusa/pull/12476) [`b8ab053252f7c8f854b4b549b74c2cf0521bd8d5`](https://github.com/medusajs/medusa/commit/b8ab053252f7c8f854b4b549b74c2cf0521bd8d5) Thanks [@fPolic](https://github.com/fPolic)! - fix(dashboard): refund payment formatting
+
+- Updated dependencies [[`9f376ff1f122c0f70559cf4f57813b9f2b608f3e`](https://github.com/medusajs/medusa/commit/9f376ff1f122c0f70559cf4f57813b9f2b608f3e), [`fca5ad77b41856867ec68b1e46d04f1bb71cbc76`](https://github.com/medusajs/medusa/commit/fca5ad77b41856867ec68b1e46d04f1bb71cbc76)]:
+  - @medusajs/js-sdk@2.8.3
+  - @medusajs/admin-shared@2.8.3
+  - @medusajs/icons@2.8.3
+  - @medusajs/ui@4.0.13
+
 ## 2.8.2
 
 ### Patch Changes
