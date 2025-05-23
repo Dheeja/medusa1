@@ -415,11 +415,21 @@ export const generatedSidebars = [
                 "loaded": true,
                 "isPathHref": true,
                 "type": "link",
+                "path": "/learn/fundamentals/module-links/index-module",
+                "title": "Index Module",
+                "children": [],
+                "chapterTitle": "3.4.4. Index Module",
+                "number": "3.4.4."
+              },
+              {
+                "loaded": true,
+                "isPathHref": true,
+                "type": "link",
                 "path": "/learn/fundamentals/module-links/custom-columns",
                 "title": "Add Custom Columns",
                 "children": [],
-                "chapterTitle": "3.4.4. Add Custom Columns",
-                "number": "3.4.4."
+                "chapterTitle": "3.4.5. Add Custom Columns",
+                "number": "3.4.5."
               },
               {
                 "loaded": true,
@@ -428,8 +438,8 @@ export const generatedSidebars = [
                 "path": "/learn/fundamentals/module-links/read-only",
                 "title": "Read-Only Links",
                 "children": [],
-                "chapterTitle": "3.4.5. Read-Only Links",
-                "number": "3.4.5."
+                "chapterTitle": "3.4.6. Read-Only Links",
+                "number": "3.4.6."
               },
               {
                 "loaded": true,
@@ -438,8 +448,8 @@ export const generatedSidebars = [
                 "path": "/learn/fundamentals/module-links/query-context",
                 "title": "Query Context",
                 "children": [],
-                "chapterTitle": "3.4.6. Query Context",
-                "number": "3.4.6."
+                "chapterTitle": "3.4.7. Query Context",
+                "number": "3.4.7."
               }
             ],
             "chapterTitle": "3.4. Module Links",

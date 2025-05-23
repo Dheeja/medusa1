@@ -222,6 +222,11 @@ export const sidebars = [
               },
               {
                 type: "link",
+                path: "/learn/fundamentals/module-links/index-module",
+                title: "Index Module",
+              },
+              {
+                type: "link",
                 path: "/learn/fundamentals/module-links/custom-columns",
                 title: "Add Custom Columns",
               },

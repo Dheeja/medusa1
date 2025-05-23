@@ -120,5 +120,7 @@ export const generatedEditDates = {
   "app/learn/fundamentals/framework/page.mdx": "2025-04-25T14:26:25.000Z",
   "app/learn/fundamentals/api-routes/retrieve-custom-links/page.mdx": "2025-04-25T14:26:25.000Z",
   "app/learn/fundamentals/workflows/errors/page.mdx": "2025-04-25T14:26:25.000Z",
-  "app/learn/fundamentals/api-routes/override/page.mdx": "2025-05-09T08:01:24.493Z"
+  "app/learn/fundamentals/api-routes/override/page.mdx": "2025-05-09T08:01:24.493Z",
+  "app/learn/fundamentals/module-links/index/page.mdx": "2025-05-23T07:57:58.958Z",
+  "app/learn/fundamentals/module-links/index-module/page.mdx": "2025-05-23T08:36:13.009Z"
 }
