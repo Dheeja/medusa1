@@ -189,9 +189,9 @@ In Medusa v1, you configured your application in the `medusa-config.js` file. Me
 For example, this is the configuration file for a basic Medusa v2 project:
 
 ```ts title="medusa-config.ts"
-import { loadEnv, defineConfig } from '@medusajs/framework/utils'
+import { loadEnv, defineConfig } from "@medusajs/framework/utils"
 
-loadEnv(process.env.NODE_ENV || 'development', process.cwd())
+loadEnv(process.env.NODE_ENV || "development", process.cwd())
 
 module.exports = defineConfig({
   projectConfig: {
@@ -202,8 +202,8 @@ module.exports = defineConfig({
       authCors: process.env.AUTH_CORS!,
       jwtSecret: process.env.JWT_SECRET || "supersecret",
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
-    }
-  }
+    },
+  },
 })
 ```
 
@@ -446,7 +446,7 @@ module.exports = defineConfig({
   // ...
   admin: {
     // admin options...
-  }
+  },
 })
 ```
 
@@ -1343,7 +1343,7 @@ For example:
 ```ts title="src/subscribers/order-placed.ts"
 import { SubscriberArgs, type SubscriberConfig } from "@medusajs/framework"
 import { 
-  sendOrderConfirmationWorkflow
+  sendOrderConfirmationWorkflow,
 } from "../workflows/send-order-confirmation"
 
 export default async function orderPlacedHandler({
