@@ -180,7 +180,13 @@ You'll learn more about the [changes in the CLI tool later in this chapter](#med
 - [Build Medusa Application](../../build/page.mdx)
 - [Integration and Module Tests](../../debugging-and-testing/testing-tools/page.mdx).
 
-### 3. Update Configuration File
+### 3. TSConfig Changes
+
+In Medusa v1, you had multiple TSConfig configuration files for different customization types. For example, you had `tsconfig.admin.json` for admin customizations and `tsconfig.server.json` for server customizations.
+
+In Medusa v2, you only need one [root tsconfig.json](https://github.com/medusajs/medusa-starter-default/blob/master/tsconfig.json) file in your project. For admin customizations, you create a [src/admin/tsconfig.json file](https://github.com/medusajs/medusa-starter-default/blob/master/src/admin/tsconfig.json). Refer to each of those links for the recommended configurations.
+
+### 4. Update Configuration File
 
 In Medusa v1, you configured your application in the `medusa-config.js` file. Medusa v2 supports this file as `medusa-config.ts`, so make sure to rename it.
 
@@ -398,28 +404,42 @@ In v1, the admin dashboard was installed as a plugin with configurations. In v2,
 
 The [Medusa Admin Changes](#medusa-admin-changes) section covers the changes in the Medusa Admin configurations and customizations.
 
-### 4. Setup v2 Database
+### 5. Setup v2 Database
 
 Now that you have updated your dependencies and configuration file, you need to set up the database for your v2 project.
 
 This will not take into account entities and data customizations in your v1 project, as you still need to change those. Instead, it will only create the database and tables for your v2 project.
 
-Run the following commands to create the database and tables:
+First, change your database environment variables to the following:
+
+```bash
+DATABASE_URL=postgres://localhost/$DB_NAME
+DB_NAME=medusa-v2
+```
+
+You can change `medusa-v2` to any database name you prefer.
+
+Then, run the following commands to create the database and tables:
 
 ```bash npm2yarn
 npx medusa db:setup
-npm run seed # optional
 ```
 
-The first command will create the database and tables for your v2 project. The second command will seed the database with demo data.
+This command will create the database and tables for your v2 project.
 
 After that, you can start your Medusa application with the `dev` command. Note that you may have errors if you need to make implementation changes that are covered in the rest of this guide, so it's better to wait until you finish the v2 migration process before starting the Medusa application.
 
-### 5. TSConfig Changes
+### (Optional) 6. Seed with Demo Data
 
-In Medusa v1, you had multiple TSConfig configuration files for different customization types. For example, you had `tsconfig.admin.json` for admin customizations and `tsconfig.server.json` for server customizations.
+If you want to seed your Medusa v2 project with demo data, you can copy the content of [this file](https://github.com/medusajs/medusa-starter-default/blob/master/src/scripts/seed.ts) to your `src/scripts/seed.ts` file.
 
-In Medusa v2, you only need one [root tsconfig.json](https://github.com/medusajs/medusa-starter-default/blob/master/tsconfig.json) file in your project. For admin customizations, you create a [src/admin/tsconfig.json file](https://github.com/medusajs/medusa-starter-default/blob/master/src/admin/tsconfig.json). Refer to each of those links for the recommended configurations.
+Then, run the following command to seed the database:
+
+```bash npm2yarn
+npm run seed
+```
+
+This will seed your database with demo data.
 
 ---
 

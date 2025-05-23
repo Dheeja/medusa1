@@ -121,5 +121,5 @@ export const generatedEditDates = {
   "app/learn/fundamentals/api-routes/retrieve-custom-links/page.mdx": "2025-04-25T14:26:25.000Z",
   "app/learn/fundamentals/workflows/errors/page.mdx": "2025-04-25T14:26:25.000Z",
   "app/learn/fundamentals/api-routes/override/page.mdx": "2025-05-09T08:01:24.493Z",
-  "app/learn/introduction/v1-migration/page.mdx": "2025-05-23T12:27:01.969Z"
+  "app/learn/introduction/v1-migration/page.mdx": "2025-05-23T13:04:22.413Z"
 }
