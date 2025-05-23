@@ -20,7 +20,7 @@ While modules share the same database by default, Medusa [isolates modules](../.
 
 So, when you retrieve data across modules using Query, Medusa aggregates the data coming from diffeent modules to create the end result. This approach limits your ability to filter data by linked modules. For example, you can't filter products (created in the Product Module) by their brand (created in the Brand Module).
 
-The Index Module solves this problem by injesting data into a central data store on application start up. The data store has a relational structure that enables efficiently filtering the data injested from different modules (and their data stores). So, when you retrieve data with the Index Module, you're retrieving them from the injested data store, not the original data source.
+The Index Module solves this problem by ingesting data into a central data store on application startup. The data store has a relational structure that enables efficiently filtering data ingested from different modules (and their data stores). So, when you retrieve data with the Index Module, you're retrieving it from the Index' data store, not the original data source.
 
 ![Diagram showcasing how data is retrieved from the Index Module's data store](https://res.cloudinary.com/dza7lstvk/image/upload/v1747988533/Medusa%20Book/index-module_epurmt.jpg)
 
