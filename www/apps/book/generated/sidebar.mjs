@@ -44,7 +44,7 @@ export const generatedSidebars = [
             "isPathHref": true,
             "type": "link",
             "title": "Migrate from v1",
-            "path": "/learn/v1-migration",
+            "path": "/learn/introduction/v1-migration",
             "children": [],
             "chapterTitle": "1.4. Migrate from v1",
             "number": "1.4."
