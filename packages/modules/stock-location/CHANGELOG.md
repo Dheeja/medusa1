@@ -1,5 +1,12 @@
 # @medusajs/stock-location
 
+## 2.8.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @medusajs/framework@2.8.3
+
 ## 2.8.2
 
 ### Patch Changes

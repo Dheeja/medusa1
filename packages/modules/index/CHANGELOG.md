@@ -1,5 +1,22 @@
 # @medusajs/index
 
+## 2.8.3
+
+### Patch Changes
+
+- [#12530](https://github.com/medusajs/medusa/pull/12530) [`dd667204048d3d9e0a6a9edc5426128293145c86`](https://github.com/medusajs/medusa/commit/dd667204048d3d9e0a6a9edc5426128293145c86) Thanks [@adrien2p](https://github.com/adrien2p)! - feat(index): Only run the synchronisation in worker/shared mode
+
+- [#12528](https://github.com/medusajs/medusa/pull/12528) [`ac49eb9a6c4ba0bd82b146f465790fd4546701c9`](https://github.com/medusajs/medusa/commit/ac49eb9a6c4ba0bd82b146f465790fd4546701c9) Thanks [@adrien2p](https://github.com/adrien2p)! - Typo/index logs
+
+- [#12501](https://github.com/medusajs/medusa/pull/12501) [`59bbff62d81861282d55a32d6c0c45285203c4e0`](https://github.com/medusajs/medusa/commit/59bbff62d81861282d55a32d6c0c45285203c4e0) Thanks [@carlos-r-l-rodrigues](https://github.com/carlos-r-l-rodrigues)! - fix(index): limit partition table name and index enum fields
+
+- [#12557](https://github.com/medusajs/medusa/pull/12557) [`499381d1194b33c8212e6e995a3208364c3ab188`](https://github.com/medusajs/medusa/commit/499381d1194b33c8212e6e995a3208364c3ab188) Thanks [@adrien2p](https://github.com/adrien2p)! - chore(index): Few adjustments
+
+- [#12543](https://github.com/medusajs/medusa/pull/12543) [`ebe5cc7acddb7c61dc82fd8ec7f2fe3779104a99`](https://github.com/medusajs/medusa/commit/ebe5cc7acddb7c61dc82fd8ec7f2fe3779104a99) Thanks [@carlos-r-l-rodrigues](https://github.com/carlos-r-l-rodrigues)! - chore(index): return ids only
+
+- Updated dependencies []:
+  - @medusajs/framework@2.8.3
+
 ## 2.8.2
 
 ### Patch Changes

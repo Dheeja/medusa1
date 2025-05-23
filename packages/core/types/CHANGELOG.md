@@ -1,5 +1,17 @@
 # @medusajs/types
 
+## 2.8.3
+
+### Patch Changes
+
+- [#12567](https://github.com/medusajs/medusa/pull/12567) [`4e49cebcf0f053cb89012276e935a7ec62a12046`](https://github.com/medusajs/medusa/commit/4e49cebcf0f053cb89012276e935a7ec62a12046) Thanks [@shahednasser](https://github.com/shahednasser)! - fix(core-flows, types): export steps and types related to credit lines
+
+- [#12501](https://github.com/medusajs/medusa/pull/12501) [`59bbff62d81861282d55a32d6c0c45285203c4e0`](https://github.com/medusajs/medusa/commit/59bbff62d81861282d55a32d6c0c45285203c4e0) Thanks [@carlos-r-l-rodrigues](https://github.com/carlos-r-l-rodrigues)! - fix(index): limit partition table name and index enum fields
+
+- [#12508](https://github.com/medusajs/medusa/pull/12508) [`52bd9f9a53f6e63e5fbe0beb1fb2c650d88f7c88`](https://github.com/medusajs/medusa/commit/52bd9f9a53f6e63e5fbe0beb1fb2c650d88f7c88) Thanks [@adrien2p](https://github.com/adrien2p)! - chore(product, modules-sdk): Add missing index for select-in strategy + allow to pass top level strategy to force the behaviour
+
+- [#12543](https://github.com/medusajs/medusa/pull/12543) [`ebe5cc7acddb7c61dc82fd8ec7f2fe3779104a99`](https://github.com/medusajs/medusa/commit/ebe5cc7acddb7c61dc82fd8ec7f2fe3779104a99) Thanks [@carlos-r-l-rodrigues](https://github.com/carlos-r-l-rodrigues)! - chore(index): return ids only
+
 ## 2.8.2
 
 ### Patch Changes

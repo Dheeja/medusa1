@@ -2,7 +2,8 @@
  * @oas [get] /admin/tax-providers
  * operationId: GetTaxProviders
  * summary: List Tax Providers
- * description: Retrieve a list of tax providers installed in the Medusa application through Tax Module Providers. The tax providers can be filtered by fields such as `id`. The tax providers can also be sorted or paginated.
+ * description: Retrieve a list of tax providers installed in the Medusa application through Tax Module Providers. The tax providers can be filtered by fields such as `id`. The tax providers can also be
+ *   sorted or paginated.
  * x-authenticated: true
  * parameters:
  *   - name: fields

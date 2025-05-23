@@ -43,6 +43,8 @@ const allReferences = [
   "notification-service",
   "events",
   "module-events",
+  "analytics",
+  "analytics-provider",
 ]
 
 export default allReferences

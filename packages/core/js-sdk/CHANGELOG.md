@@ -1,5 +1,16 @@
 # @medusajs/js-sdk
 
+## 2.8.3
+
+### Patch Changes
+
+- [#12545](https://github.com/medusajs/medusa/pull/12545) [`9f376ff1f122c0f70559cf4f57813b9f2b608f3e`](https://github.com/medusajs/medusa/commit/9f376ff1f122c0f70559cf4f57813b9f2b608f3e) Thanks [@shahednasser](https://github.com/shahednasser)! - fix(js-sdk): allow passing custom request body parameters in auth.register method
+
+- [#12527](https://github.com/medusajs/medusa/pull/12527) [`fca5ad77b41856867ec68b1e46d04f1bb71cbc76`](https://github.com/medusajs/medusa/commit/fca5ad77b41856867ec68b1e46d04f1bb71cbc76) Thanks [@thetutlage](https://github.com/thetutlage)! - feat: process import from pre-processed chunks
+
+- Updated dependencies [[`4e49cebcf0f053cb89012276e935a7ec62a12046`](https://github.com/medusajs/medusa/commit/4e49cebcf0f053cb89012276e935a7ec62a12046), [`59bbff62d81861282d55a32d6c0c45285203c4e0`](https://github.com/medusajs/medusa/commit/59bbff62d81861282d55a32d6c0c45285203c4e0), [`52bd9f9a53f6e63e5fbe0beb1fb2c650d88f7c88`](https://github.com/medusajs/medusa/commit/52bd9f9a53f6e63e5fbe0beb1fb2c650d88f7c88), [`ebe5cc7acddb7c61dc82fd8ec7f2fe3779104a99`](https://github.com/medusajs/medusa/commit/ebe5cc7acddb7c61dc82fd8ec7f2fe3779104a99)]:
+  - @medusajs/types@2.8.3
+
 ## 2.8.2
 
 ### Patch Changes

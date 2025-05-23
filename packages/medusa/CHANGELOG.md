@@ -1,5 +1,64 @@
 # Change Log
 
+## 2.8.3
+
+### Patch Changes
+
+- [#12539](https://github.com/medusajs/medusa/pull/12539) [`d9fdabe96d05108355c01081ea15d39467e40268`](https://github.com/medusajs/medusa/commit/d9fdabe96d05108355c01081ea15d39467e40268) Thanks [@thetutlage](https://github.com/thetutlage)! - fix: mark posthog-node as a peer dependency
+
+- [#12527](https://github.com/medusajs/medusa/pull/12527) [`fca5ad77b41856867ec68b1e46d04f1bb71cbc76`](https://github.com/medusajs/medusa/commit/fca5ad77b41856867ec68b1e46d04f1bb71cbc76) Thanks [@thetutlage](https://github.com/thetutlage)! - feat: process import from pre-processed chunks
+
+- [#12467](https://github.com/medusajs/medusa/pull/12467) [`32be40a2c09be2f793b5d348a3dd62e9312f46c9`](https://github.com/medusajs/medusa/commit/32be40a2c09be2f793b5d348a3dd62e9312f46c9) Thanks [@carlos-r-l-rodrigues](https://github.com/carlos-r-l-rodrigues)! - fix(medusa): add estimate count property on admin/products
+
+- Updated dependencies [[`dd667204048d3d9e0a6a9edc5426128293145c86`](https://github.com/medusajs/medusa/commit/dd667204048d3d9e0a6a9edc5426128293145c86), [`d9fdabe96d05108355c01081ea15d39467e40268`](https://github.com/medusajs/medusa/commit/d9fdabe96d05108355c01081ea15d39467e40268), [`fca5ad77b41856867ec68b1e46d04f1bb71cbc76`](https://github.com/medusajs/medusa/commit/fca5ad77b41856867ec68b1e46d04f1bb71cbc76), [`ac49eb9a6c4ba0bd82b146f465790fd4546701c9`](https://github.com/medusajs/medusa/commit/ac49eb9a6c4ba0bd82b146f465790fd4546701c9), [`4e49cebcf0f053cb89012276e935a7ec62a12046`](https://github.com/medusajs/medusa/commit/4e49cebcf0f053cb89012276e935a7ec62a12046), [`59bbff62d81861282d55a32d6c0c45285203c4e0`](https://github.com/medusajs/medusa/commit/59bbff62d81861282d55a32d6c0c45285203c4e0), [`499381d1194b33c8212e6e995a3208364c3ab188`](https://github.com/medusajs/medusa/commit/499381d1194b33c8212e6e995a3208364c3ab188), [`52bd9f9a53f6e63e5fbe0beb1fb2c650d88f7c88`](https://github.com/medusajs/medusa/commit/52bd9f9a53f6e63e5fbe0beb1fb2c650d88f7c88), [`ebe5cc7acddb7c61dc82fd8ec7f2fe3779104a99`](https://github.com/medusajs/medusa/commit/ebe5cc7acddb7c61dc82fd8ec7f2fe3779104a99), [`41054a34199168f0b949c3cda0bbe667da2c5993`](https://github.com/medusajs/medusa/commit/41054a34199168f0b949c3cda0bbe667da2c5993), [`c5a6573e26b403b86f53b88c307ea311a1bd9230`](https://github.com/medusajs/medusa/commit/c5a6573e26b403b86f53b88c307ea311a1bd9230), [`3071d09a03205597158afe79d55dd43643a97026`](https://github.com/medusajs/medusa/commit/3071d09a03205597158afe79d55dd43643a97026)]:
+  - @medusajs/index@2.8.3
+  - @medusajs/analytics-posthog@2.8.3
+  - @medusajs/core-flows@2.8.3
+  - @medusajs/link-modules@2.8.3
+  - @medusajs/product@2.8.3
+  - @medusajs/admin-bundler@2.8.3
+  - @medusajs/framework@2.8.3
+  - @medusajs/analytics@2.8.3
+  - @medusajs/api-key@2.8.3
+  - @medusajs/auth@2.8.3
+  - @medusajs/cart@2.8.3
+  - @medusajs/currency@2.8.3
+  - @medusajs/customer@2.8.3
+  - @medusajs/file@2.8.3
+  - @medusajs/fulfillment@2.8.3
+  - @medusajs/inventory@2.8.3
+  - @medusajs/locking@2.8.3
+  - @medusajs/notification@2.8.3
+  - @medusajs/order@2.8.3
+  - @medusajs/payment@2.8.3
+  - @medusajs/pricing@2.8.3
+  - @medusajs/promotion@2.8.3
+  - @medusajs/region@2.8.3
+  - @medusajs/sales-channel@2.8.3
+  - @medusajs/stock-location@2.8.3
+  - @medusajs/store@2.8.3
+  - @medusajs/tax@2.8.3
+  - @medusajs/user@2.8.3
+  - @medusajs/workflow-engine-inmemory@2.8.3
+  - @medusajs/workflow-engine-redis@2.8.3
+  - @medusajs/cache-inmemory@2.8.3
+  - @medusajs/cache-redis@2.8.3
+  - @medusajs/event-bus-local@2.8.3
+  - @medusajs/event-bus-redis@2.8.3
+  - @medusajs/analytics-local@2.8.3
+  - @medusajs/auth-emailpass@2.8.3
+  - @medusajs/auth-github@2.8.3
+  - @medusajs/auth-google@2.8.3
+  - @medusajs/file-local@2.8.3
+  - @medusajs/file-s3@2.8.3
+  - @medusajs/fulfillment-manual@2.8.3
+  - @medusajs/locking-postgres@2.8.3
+  - @medusajs/locking-redis@2.8.3
+  - @medusajs/notification-local@2.8.3
+  - @medusajs/notification-sendgrid@2.8.3
+  - @medusajs/payment-stripe@2.8.3
+  - @medusajs/telemetry@2.8.3
+
 ## 2.8.2
 
 ### Patch Changes

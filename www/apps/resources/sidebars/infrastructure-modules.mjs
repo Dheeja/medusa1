@@ -10,6 +10,50 @@ export const infrastructureModulesSidebar = [
   },
   {
     type: "category",
+    title: "Analytics Module",
+    initialOpen: true,
+    children: [
+      {
+        type: "link",
+        path: "/infrastructure-modules/analytics",
+        title: "Overview",
+      },
+      {
+        type: "sub-category",
+        title: "Modules",
+        children: [
+          {
+            type: "link",
+            path: "/infrastructure-modules/analytics/local",
+            title: "Local",
+          },
+          {
+            type: "link",
+            path: "/infrastructure-modules/analytics/posthog",
+            title: "PostHog",
+          },
+        ],
+      },
+      {
+        type: "sub-category",
+        title: "Guides",
+        children: [
+          {
+            type: "link",
+            path: "/references/analytics/provider",
+            title: "Create Analytics Module Provider",
+          },
+          {
+            type: "link",
+            path: "/references/analytics/service",
+            title: "Use Analytics Module",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    type: "category",
     title: "Cache Module",
     initialOpen: true,
     children: [

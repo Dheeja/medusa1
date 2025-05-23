@@ -154,6 +154,14 @@ const generatedgeneratedHowToTutorialsSidebarSidebar = {
               "loaded": true,
               "isPathHref": true,
               "type": "ref",
+              "title": "Use Analytics Module",
+              "path": "https://docs.medusajs.com/resources/references/analytics/service",
+              "children": []
+            },
+            {
+              "loaded": true,
+              "isPathHref": true,
+              "type": "ref",
               "title": "Use Cache Module",
               "path": "https://docs.medusajs.com/resources/references/cache-service",
               "children": []

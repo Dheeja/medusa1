@@ -1,7 +1,7 @@
 import type { AdminOptions, ConfigModule, Logger } from "@medusajs/types"
 import { FileSystem, getConfigFile, getResolvedPlugins } from "@medusajs/utils"
 import chokidar from "chokidar"
-import { access, constants, copyFile, rm } from "fs/promises"
+import { access, constants, copyFile, mkdir, rm } from "fs/promises"
 import path from "path"
 import type tsStatic from "typescript"
 
@@ -283,6 +283,11 @@ export class Compiler {
       `Removing existing "${path.relative(this.#projectRoot, dist)}" folder`
     )
     await this.#clean(dist)
+
+    /**
+     * Create first the target directory now that everything is clean
+     */
+    await mkdir(dist, { recursive: true })
 
     /**
      * Step 2: Compile TypeScript source code

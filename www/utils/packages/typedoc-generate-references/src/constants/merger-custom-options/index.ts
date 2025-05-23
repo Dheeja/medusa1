@@ -17,8 +17,12 @@ import eventOptions from "./event.js"
 import fileServiceOptions from "./file-service.js"
 import notificationServiceOptions from "./notification-service.js"
 import eventsOptions from "./events.js"
+import analyticsOptions from "./analytics.js"
+import analyticsProviderOptions from "./analytics-provider.js"
 
 const mergerCustomOptions: FormattingOptionsType = {
+  ...analyticsOptions,
+  ...analyticsProviderOptions,
   ...authProviderOptions,
   ...cacheOptions,
   ...coreFlowsOptions,

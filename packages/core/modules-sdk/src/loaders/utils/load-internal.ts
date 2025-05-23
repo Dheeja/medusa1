@@ -24,6 +24,7 @@ import {
   MedusaModuleType,
   Modules,
   ModulesSdkUtils,
+  stringifyCircular,
   toMikroOrmEntities,
 } from "@medusajs/utils"
 import { asFunction, asValue } from "awilix"
@@ -664,6 +665,12 @@ async function runLoaders(
     container.register({
       [keyName]: asValue(undefined),
     })
+
+    logger.error(
+      `Loaders for module ${
+        resolution.definition.label
+      } failed with the following error: \n${stringifyCircular(err)}`
+    )
 
     return {
       error: new Error(

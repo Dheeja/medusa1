@@ -74,6 +74,15 @@ async function main() {
           process.cwd(),
           "..",
           "resources",
+          "app",
+          "infrastructure-modules"
+        ),
+      },
+      {
+        dir: path.join(
+          process.cwd(),
+          "..",
+          "resources",
           "references",
           "core_flows"
         ),
@@ -191,17 +200,6 @@ async function main() {
             type: "Store",
           },
         },
-      },
-      {
-        dir: path.join(
-          process.cwd(),
-          "..",
-          "resources",
-          "references",
-          "medusa_config",
-          "interfaces",
-          "medusa_config.ConfigModule"
-        ),
       },
       {
         dir: path.join(

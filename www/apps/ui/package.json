@@ -16,9 +16,9 @@
   "dependencies": {
     "@faker-js/faker": "^8.0.2",
     "@mdx-js/react": "^3.1.0",
-    "@medusajs/icons": "2.8.2",
-    "@medusajs/ui": "4.0.12",
-    "@medusajs/ui-preset": "2.8.2",
+    "@medusajs/icons": "2.8.3",
+    "@medusajs/ui": "4.0.13",
+    "@medusajs/ui-preset": "2.8.3",
     "autoprefixer": "10.4.14",
     "build-scripts": "*",
     "clsx": "^2.0.0",
