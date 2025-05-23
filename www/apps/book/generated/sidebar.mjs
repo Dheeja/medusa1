@@ -38,6 +38,16 @@ export const generatedSidebars = [
             "children": [],
             "chapterTitle": "1.3. Architecture",
             "number": "1.3."
+          },
+          {
+            "loaded": true,
+            "isPathHref": true,
+            "type": "link",
+            "title": "Migrate from v1",
+            "path": "/learn/v1-migration",
+            "children": [],
+            "chapterTitle": "1.4. Migrate from v1",
+            "number": "1.4."
           }
         ],
         "chapterTitle": "1. Getting Started",

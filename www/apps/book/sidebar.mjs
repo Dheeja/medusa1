@@ -23,6 +23,11 @@ export const sidebars = [
             title: "Architecture",
             path: "/learn/introduction/architecture",
           },
+          {
+            type: "link",
+            title: "Migrate from v1",
+            path: "/learn/v1-migration",
+          },
         ],
       },
       {
