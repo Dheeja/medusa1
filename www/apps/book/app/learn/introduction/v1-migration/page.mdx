@@ -907,6 +907,8 @@ So, if in Medusa v1 you had a `Brand` entity and a service to manage it, in v2, 
 
 To learn how to create a module, refer to the [Modules](../../fundamentals/modules/page.mdx) chapter.
 
+![Diagram showcasing the directory structure difference between Medusa v1 and v2](https://res.cloudinary.com/dza7lstvk/image/upload/v1748277500/Medusa%20Book/modules-v1-v2_dsnzyl.jpg)
+
 #### Data Models
 
 In Medusa v1, you created data models (entities) using TypeORM.
@@ -1037,9 +1039,63 @@ Learn more in the [Module Links](../../fundamentals/module-links/page.mdx) chapt
 
 In Medusa v1, you were able to extend services by creating a new service that extended the original one. For example, you could create a custom `ProductService` that extended the original `ProductService` to add a new method.
 
-In Medusa v2, you can no longer extend services. Instead, you need to create a module with a service that contains the methods you want to add. Then, you build [workflows](../../fundamentals/workflows/page.mdx) that use both services to achieve a custom feature.
+In Medusa v2, you can no longer extend services. Instead, you need to [create a module](../../fundamentals/modules/page.mdx) with a service that contains the methods you want to add. Then, you can:
 
-Workflows in Medusa v2 are even more flexible, allowing you to perform custom functionalities within existing workflows using concepts like [Workflow Hooks](../../fundamentals/workflows/workflow-hooks/page.mdx).
+- Build [workflows](../../fundamentals/workflows/page.mdx) that use both services to achieve a custom feature.
+- Consume [Workflow Hooks](../../fundamentals/workflows/workflow-hooks/page.mdx) to run custom actions in existing workflows.
+- For more complex use cases, you can re-create an existing workflow and use your custom module's service in it.
+
+For example, if you extended the `CartService` in v1 to add items with custom prices to the cart, you can instead build a custom workflow that uses your custom module to retrieve an item's price, then add it to the cart using the existing `addToCartWorkflow`:
+
+```ts
+import { 
+  createWorkflow,
+  transform,
+  WorkflowResponse
+} from "@medusajs/framework/workflows-sdk"
+import { addToCartWorkflow } from "@medusajs/medusa/core-flows"
+import { 
+  getCustomPriceStep, 
+} from "./steps/get-custom-price"
+
+type AddCustomToCartWorkflowInput = {
+  cart_id: string
+  item: {
+    variant_id: string
+    quantity: number
+    metadata?: Record<string, unknown>
+  }
+}
+
+export const addCustomToCartWorkflow = createWorkflow(
+  "add-custom-to-cart",
+  ({ cart_id, item }: AddCustomToCartWorkflowInput) => {
+    // assuming this step uses a custom module to get the price
+    const price = getCustomPriceStep({
+      variant: item.variant_id,
+      currencyCode: "usd",
+      quantity: item.quantity,
+    })
+
+    const itemToAdd = transform({
+      item,
+      price,
+    }, (data) => {
+      return [{
+        ...data.item,
+        unit_price: data.price,
+      }]
+    })
+
+    addToCartWorkflow.runAsStep({
+      input: {
+        items: itemToAdd,
+        cart_id,
+      },
+    })
+  }
+)
+```
 
 Refer to the [Workflows](../../fundamentals/workflows/page.mdx) chapters to learn more about workflows in Medusa v2.
 
@@ -1048,6 +1104,8 @@ Refer to the [Workflows](../../fundamentals/workflows/page.mdx) chapters to lear
 In Medusa v1, you integrated third-party services by creating a service under `src/services` and using it in your customizations.
 
 In Medusa v2, you can integrate third-party services by creating a module with a service that contains the methods to interact with the third-party service. You can then use the module's service in a [workflow](../../fundamentals/workflows/page.mdx) to build custom features.
+
+![Directory structure change between v1 and v2](https://res.cloudinary.com/dza7lstvk/image/upload/v1748278103/Medusa%20Book/integrations-v1-v2_cjzkus.jpg)
 
 ---
 
@@ -1121,6 +1179,47 @@ In Medusa v2, you import them from the `@medusajs/framework/workflows-sdk` packa
 
 ```ts title="src/workflows/hello-world.ts"
 import { createStep, StepResponse } from "@medusajs/framework/workflows-sdk"
+```
+
+#### Workflow Return Value
+
+In Medusa v1, you returned any value from a workflow, such as a string or an object.
+
+In Medusa v2, you must return an instance of `WorkflowResponse` from a workflow. The data passed to `WorkflowResponse`'s constructor is returned to the caller of the workflow.
+
+For example:
+
+```ts title="src/workflows/hello-world.ts"
+import { 
+  createWorkflow, 
+  WorkflowResponse
+} from "@medusajs/framework/workflows-sdk"
+
+export const helloWorldWorkflow = createWorkflow(
+  "hello-world", 
+  () => {
+    return new WorkflowResponse("Hello, world!")
+  }
+)
+
+// in API route, for example:
+import type {
+  MedusaRequest,
+  MedusaResponse,
+} from "@medusajs/framework/http"
+
+export const GET = (
+  req: MedusaRequest,
+  res: MedusaResponse
+) => {
+  // message is "Hello, world!"
+  const { result: message } = await helloWorldWorkflow(req.scope)
+    .run()
+
+  res.json({
+    message,
+  })
+}
 ```
 
 #### New Workflow Features
