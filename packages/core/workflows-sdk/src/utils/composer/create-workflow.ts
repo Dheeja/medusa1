@@ -122,6 +122,7 @@ export function createWorkflow<TData, TResult, THooks extends any[]>(
       registered: [],
     },
     hooksCallback_: {},
+    stepConditions_: {},
     hookBinder: (name, fn) => {
       context.hooks_.declared.push(name)
       context.hooksCallback_[name] = fn.bind(context)()

@@ -809,6 +809,87 @@ describe("Workflow composer", function () {
       expect(stepResults).toEqual(["step3", "step1"])
     })
 
+    it("should compose a new workflow with conditional steps", async () => {
+      const stepResults: string[] = []
+
+      let hookCalled = jest.fn()
+      let timesExecuted = 0
+      const mockStep1Fn = jest.fn().mockImplementation(async () => {
+        timesExecuted += 1
+        stepResults.push("step1")
+        return new StepResponse(true)
+      }) as any
+      const mockStep2Fn = jest.fn().mockImplementation(() => {
+        stepResults.push("step2")
+        return new StepResponse(true)
+      }) as any
+
+      const step1 = createStep("step1", mockStep1Fn)
+      const step2 = createStep("step2", mockStep2Fn)
+
+      const workflow = createWorkflow(
+        "workflow1",
+        function (input: { timesExecuted: number }) {
+          const ret = when("cond", input, ({ timesExecuted }) => {
+            return timesExecuted < 2
+          }).then(() => {
+            createHook("validate", {
+              executed: input.timesExecuted,
+            })
+            const ret1 = step1()
+            const ret2 = step2()
+            const parallelized = parallelize(ret1, ret2)
+
+            return [ret1, ret2, parallelized]
+          })
+
+          return new WorkflowResponse(ret)
+        }
+      )
+
+      ;(workflow.hooks as any).validate((input) => {
+        hookCalled(input)
+      })
+
+      const { result: workflowResult } = await workflow().run({
+        input: {
+          timesExecuted,
+        },
+      })
+
+      const { result: workflowResultSecondTime } = await workflow().run({
+        input: {
+          timesExecuted,
+        },
+      })
+
+      const { result: workflowResultThirdTime } = await workflow().run({
+        input: {
+          timesExecuted,
+        },
+      })
+
+      const { result: workflowResultFourthTime } = await workflow().run({
+        input: {
+          timesExecuted,
+        },
+      })
+
+      expect(hookCalled).toHaveBeenCalledTimes(2)
+      expect(mockStep1Fn).toHaveBeenCalledTimes(2)
+      expect(mockStep2Fn).toHaveBeenCalledTimes(2)
+
+      expect(workflowResult).toEqual([true, true, [true, true]])
+
+      expect(workflowResultSecondTime).toEqual([true, true, [true, true]])
+
+      expect(workflowResultThirdTime).toEqual(undefined)
+
+      expect(workflowResultFourthTime).toEqual(undefined)
+
+      expect(stepResults).toEqual(["step1", "step2", "step1", "step2"])
+    })
+
     it("should compose a new workflow with parallelize steps and rollback them all in case of error", async () => {
       const step1CompensationFn = jest.fn().mockImplementation(() => {
         return "step1 compensation"

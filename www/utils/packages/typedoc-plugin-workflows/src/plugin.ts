@@ -303,20 +303,39 @@ class WorkflowsPlugin {
       if (stepType === "hook" && "symbol" in initializer.arguments[1]) {
         // get the hook's name from the first argument
         stepId = this.helper.normalizeName(initializer.arguments[0].getText())
-        const hookArgumetSymbol = this.getHookArgumentSymbol({
-          argument: initializer.arguments[1],
-          constructorFn,
-        })
+        const shouldIgnore = ts
+          .getJSDocCommentsAndTags(initializer.parent)
+          .some((comment) => {
+            if (!("tags" in comment)) {
+              return false
+            }
 
-        if (hookArgumetSymbol) {
-          stepReflection = this.assembleHookReflection({
-            stepId,
-            context,
-            inputSymbol: hookArgumetSymbol,
-            workflowName: workflowVarName,
-            workflowComments,
-            workflowReflection: workflowReflection.parent,
+            return comment.tags?.some(
+              (tag) => tag.tagName.getText() === "ignore"
+            )
           })
+        if (stepId === "beforePaymentAuthorization") {
+          console.log(
+            shouldIgnore,
+            ts.getJSDocCommentsAndTags(initializer.parent)
+          )
+        }
+        if (!shouldIgnore) {
+          const hookArgumetSymbol = this.getHookArgumentSymbol({
+            argument: initializer.arguments[1],
+            constructorFn,
+          })
+
+          if (hookArgumetSymbol) {
+            stepReflection = this.assembleHookReflection({
+              stepId,
+              context,
+              inputSymbol: hookArgumetSymbol,
+              workflowName: workflowVarName,
+              workflowComments,
+              workflowReflection: workflowReflection.parent,
+            })
+          }
         }
       } else {
         const initializerReflection = findReflectionInNamespaces(
