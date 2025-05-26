@@ -819,6 +819,27 @@ However, plugin options are now only passed to modules and module providers crea
 
 So, if you previously accessed options in a plugin's subscriber, for example, that's not possible anymore. You need to access the options in a module or module provider instead, then use its service in the plugin's subscriber.
 
+For example, this is how you can access options in a plugin's subscriber in v2:
+
+```ts title="src/subscribers/order-placed.ts"
+import { SubscriberArgs, type SubscriberConfig } from "@medusajs/framework"
+
+export default async function orderPlacedHandler({
+  event: { data },
+  container,
+}: SubscriberArgs<{ id: string }>) {
+  const customModuleService = container.resolve("custom")
+
+  const options = customModuleService.getOptions()
+
+  // Use the options in your logic...
+}
+
+export const config: SubscriberConfig = {
+  event: `order.placed`,
+}
+```
+
 Learn more in the [Create Plugin](../../fundamentals/plugins/create/page.mdx) chapter.
 
 #### enableUI Option
