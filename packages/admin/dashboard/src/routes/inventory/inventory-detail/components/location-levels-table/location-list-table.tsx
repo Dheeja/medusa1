@@ -3,7 +3,7 @@ import { useInventoryItemLevels } from "../../../../../hooks/api/inventory"
 import { useLocationListTableColumns } from "./use-location-list-table-columns"
 import { useLocationLevelTableQuery } from "./use-location-list-table-query"
 
-const PAGE_SIZE = 1
+const PAGE_SIZE = 20
 const PREFIX = "invlvl"
 
 export const ItemLocationListTable = ({
