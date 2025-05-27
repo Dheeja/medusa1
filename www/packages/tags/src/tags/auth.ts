@@ -8,6 +8,10 @@ export const auth = [
     "path": "https://docs.medusajs.com/user-guide/reset-password"
   },
   {
+    "title": "Implement Phone Authentication",
+    "path": "https://docs.medusajs.com/resources/how-to-tutorials/tutorials/phone-auth"
+  },
+  {
     "title": "Log-out Customer in Storefront",
     "path": "https://docs.medusajs.com/resources/storefront-development/customers/log-out"
   },

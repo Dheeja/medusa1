@@ -160,4 +160,31 @@ describe.skip("S3 File Plugin", () => {
 
     await s3Service.delete({ fileKey: resp.key })
   })
+
+  it("deletes multiple files in bulk", async () => {
+    const fileContent = await fs.readFile(fixtureImagePath)
+    const fixtureAsBinary = fileContent.toString("binary")
+
+    const cat = await s3Service.upload({
+      filename: "catphoto.jpg",
+      mimeType: "image/jpeg",
+      content: fixtureAsBinary,
+    })
+    const cat1 = await s3Service.upload({
+      filename: "catphoto-1.jpg",
+      mimeType: "image/jpeg",
+      content: fixtureAsBinary,
+    })
+    const cat2 = await s3Service.upload({
+      filename: "catphoto-2.jpg",
+      mimeType: "image/jpeg",
+      content: fixtureAsBinary,
+    })
+
+    await s3Service.delete([
+      { fileKey: cat.key },
+      { fileKey: cat1.key },
+      { fileKey: cat2.key },
+    ])
+  })
 })

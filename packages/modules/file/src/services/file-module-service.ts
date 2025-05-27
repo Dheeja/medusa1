@@ -81,11 +81,11 @@ export default class FileModuleService implements FileTypes.IFileModuleService {
   async deleteFiles(id: string, sharedContext?: Context): Promise<void>
   async deleteFiles(ids: string[] | string): Promise<void> {
     const input = Array.isArray(ids) ? ids : [ids]
-    await Promise.all(
-      input.map((id) => this.fileProviderService_.delete({ fileKey: id }))
+    await this.fileProviderService_.delete(
+      input.map((id) => {
+        return { fileKey: id }
+      })
     )
-
-    return
   }
 
   async retrieveFile(id: string): Promise<FileDTO> {

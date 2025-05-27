@@ -66,21 +66,29 @@ export class LocalFileService extends AbstractFileProviderService {
     }
   }
 
-  async delete(file: FileTypes.ProviderDeleteFileDTO): Promise<void> {
-    const baseDir = file.fileKey.startsWith("private-")
-      ? this.privateUploadDir_
-      : this.uploadDir_
+  async delete(
+    files: FileTypes.ProviderDeleteFileDTO | FileTypes.ProviderDeleteFileDTO[]
+  ): Promise<void> {
+    files = Array.isArray(files) ? files : [files]
 
-    const filePath = this.getUploadFilePath(baseDir, file.fileKey)
-    try {
-      await fs.access(filePath, fs.constants.W_OK)
-      await fs.unlink(filePath)
-    } catch (e) {
-      // The file does not exist, we don't do anything
-      if (e.code !== "ENOENT") {
-        throw e
-      }
-    }
+    await Promise.all(
+      files.map(async (file) => {
+        const baseDir = file.fileKey.startsWith("private-")
+          ? this.privateUploadDir_
+          : this.uploadDir_
+
+        const filePath = this.getUploadFilePath(baseDir, file.fileKey)
+        try {
+          await fs.access(filePath, fs.constants.W_OK)
+          await fs.unlink(filePath)
+        } catch (e) {
+          // The file does not exist, we don't do anything
+          if (e.code !== "ENOENT") {
+            throw e
+          }
+        }
+      })
+    )
 
     return
   }

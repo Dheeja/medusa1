@@ -20,6 +20,10 @@ export const customer = [
     "path": "https://docs.medusajs.com/resources/how-to-tutorials/tutorials/loyalty-points"
   },
   {
+    "title": "Implement Phone Authentication",
+    "path": "https://docs.medusajs.com/resources/how-to-tutorials/tutorials/phone-auth"
+  },
+  {
     "title": "Manage Customer Addresses in Storefront",
     "path": "https://docs.medusajs.com/resources/storefront-development/customers/addresses"
   },

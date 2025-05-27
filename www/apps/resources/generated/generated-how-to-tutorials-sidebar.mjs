@@ -458,6 +458,15 @@ const generatedgeneratedHowToTutorialsSidebarSidebar = {
           "loaded": true,
           "isPathHref": true,
           "type": "link",
+          "title": "Phone Authentication",
+          "path": "/how-to-tutorials/tutorials/phone-auth",
+          "description": "Learn how to allow users to authenticate using their phone numbers.",
+          "children": []
+        },
+        {
+          "loaded": true,
+          "isPathHref": true,
+          "type": "link",
           "title": "Product Reviews",
           "path": "/how-to-tutorials/tutorials/product-reviews",
           "description": "Learn how to implement product reviews in your Medusa store.",
