@@ -130,7 +130,6 @@ export const useLocationListTableColumns = () => {
             </div>
           )
         },
-        enableSorting: true,
       }),
       columnHelper.action({
         actions: (ctx) => {

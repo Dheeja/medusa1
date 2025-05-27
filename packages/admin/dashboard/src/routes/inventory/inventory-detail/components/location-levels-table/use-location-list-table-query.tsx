@@ -16,7 +16,6 @@ export const useLocationLevelTableQuery = ({
       "stocked_quantity",
       "reserved_quantity",
       "incoming_quantity",
-      "available_quantity",
     ],
     prefix
   )
