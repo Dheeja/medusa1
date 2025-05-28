@@ -215,11 +215,6 @@ function prepareInventoryUpdate({
     return acc
   }, {})
 
-  const reservationMap = reservations.reduce((acc, reservation) => {
-    acc[reservation.inventory_item_id as string] = reservation
-    return acc
-  }, {})
-
   for (const fulfillmentItem of fulfillment.items) {
     // if this is `null` this means that item is from variant that has `manage_inventory` false
     if (!fulfillmentItem.inventory_item_id) {
@@ -228,24 +223,36 @@ function prepareInventoryUpdate({
 
     const orderItem = orderItemsMap[fulfillmentItem.line_item_id as string]
 
-    orderItem?.variant?.inventory_items.forEach((iitem) => {
-      const reservation =
-        reservationMap[fulfillmentItem.inventory_item_id as string]
+    const iitem = orderItem?.variant?.inventory_items.find(
+      (i) => i.inventory.id === fulfillmentItem.inventory_item_id
+    )
 
-      if (!reservation) {
-        toCreate.push({
-          inventory_item_id: iitem.inventory.id,
-          location_id: fulfillment.location_id,
-          quantity: fulfillmentItem.quantity, // <- this is the inventory quantity that is being fulfilled so it menas it does include the required quantity
-          line_item_id: fulfillmentItem.line_item_id as string,
-        })
-      } else {
-        toUpdate.push({
-          id: reservation.id,
-          quantity: reservation.quantity + fulfillmentItem.quantity,
-        })
-      }
-    })
+    if (!iitem) {
+      continue
+    }
+
+    const reservation = reservations.find(
+      (r) =>
+        r.inventory_item_id === iitem.inventory.id &&
+        r.line_item_id === fulfillmentItem.line_item_id
+    )
+
+    if (!reservation) {
+      toCreate.push({
+        inventory_item_id: iitem.inventory.id,
+        location_id: fulfillment.location_id,
+        quantity: fulfillmentItem.quantity, // <- this is the inventory quantity that is being fulfilled so it means it does include the required quantity
+        line_item_id: fulfillmentItem.line_item_id as string,
+      })
+    } else {
+      toUpdate.push({
+        id: reservation.id,
+        quantity: MathBN.add(
+          reservation.quantity,
+          fulfillmentItem.quantity
+        ) as BigNumberInput,
+      })
+    }
 
     inventoryAdjustment.push({
       inventory_item_id: fulfillmentItem.inventory_item_id as string,
@@ -309,6 +316,8 @@ export const cancelOrderFulfillmentWorkflow = createWorkflow(
           "items.variant.inventory_items.inventory.id",
           "items.variant.inventory_items.required_quantity",
           "fulfillments.id",
+          "fulfillments.canceled_at",
+          "fulfillments.shipped_at",
           "fulfillments.location_id",
           "fulfillments.items.id",
           "fulfillments.items.quantity",

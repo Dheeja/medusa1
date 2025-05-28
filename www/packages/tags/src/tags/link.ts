@@ -40,6 +40,10 @@ export const link = [
     "path": "https://docs.medusajs.com/resources/references/medusa-workflows/refreshCartItemsWorkflow"
   },
   {
+    "title": "refundPaymentAndRecreatePaymentSessionWorkflow",
+    "path": "https://docs.medusajs.com/resources/references/medusa-workflows/refundPaymentAndRecreatePaymentSessionWorkflow"
+  },
+  {
     "title": "transferCartCustomerWorkflow",
     "path": "https://docs.medusajs.com/resources/references/medusa-workflows/transferCartCustomerWorkflow"
   },
@@ -160,6 +164,14 @@ export const link = [
     "path": "https://docs.medusajs.com/resources/references/medusa-workflows/createPaymentSessionsWorkflow"
   },
   {
+    "title": "deletePriceListsWorkflow",
+    "path": "https://docs.medusajs.com/resources/references/medusa-workflows/deletePriceListsWorkflow"
+  },
+  {
+    "title": "deletePricePreferencesWorkflow",
+    "path": "https://docs.medusajs.com/resources/references/medusa-workflows/deletePricePreferencesWorkflow"
+  },
+  {
     "title": "createVariantPricingLinkStep",
     "path": "https://docs.medusajs.com/resources/references/medusa-workflows/steps/createVariantPricingLinkStep"
   },
@@ -224,6 +236,10 @@ export const link = [
     "path": "https://docs.medusajs.com/resources/references/medusa-workflows/updateRegionsWorkflow"
   },
   {
+    "title": "deleteReturnReasonsWorkflow",
+    "path": "https://docs.medusajs.com/resources/references/medusa-workflows/deleteReturnReasonsWorkflow"
+  },
+  {
     "title": "associateLocationsWithSalesChannelsStep",
     "path": "https://docs.medusajs.com/resources/references/medusa-workflows/steps/associateLocationsWithSalesChannelsStep"
   },
@@ -258,6 +274,10 @@ export const link = [
   {
     "title": "linkSalesChannelsToStockLocationWorkflow",
     "path": "https://docs.medusajs.com/resources/references/medusa-workflows/linkSalesChannelsToStockLocationWorkflow"
+  },
+  {
+    "title": "deleteStoresWorkflow",
+    "path": "https://docs.medusajs.com/resources/references/medusa-workflows/deleteStoresWorkflow"
   },
   {
     "title": "deleteUsersWorkflow",

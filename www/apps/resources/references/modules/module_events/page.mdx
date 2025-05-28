@@ -36,85 +36,29 @@ import { TypeList } from "docs-ui"
 
 ## Auth
 
-### AuthWorkflowEvents
-
- `Const` **AuthWorkflowEvents**: `Object`
-
-#### Properties
-
-<TypeList types={[{"name":"PASSWORD_RESET","type":"`string`","description":"Emitted when a reset password token is generated. You can listen to this event\nto send a reset password email to the user or customer, for example.","optional":false,"defaultValue":"\"auth.password_reset\"","expandable":false,"children":[]}]} expandUrl="https://docs.medusajs.com/learn/fundamentals/data-models/manage-relationships#retrieve-records-of-relation" sectionTitle="AuthWorkflowEvents"/>
-
 ___
 
 ## Cart
-
-### CartWorkflowEvents
-
- `Const` **CartWorkflowEvents**: `Object`
-
-#### Properties
-
-<TypeList types={[{"name":"CREATED","type":"`string`","description":"Emitted when a cart is created.","optional":false,"defaultValue":"\"cart.created\"","expandable":false,"children":[]},{"name":"UPDATED","type":"`string`","description":"Emitted when a cart's details are updated.","optional":false,"defaultValue":"\"cart.updated\"","expandable":false,"children":[]},{"name":"CUSTOMER_UPDATED","type":"`string`","description":"Emitted when the customer in the cart is updated.","optional":false,"defaultValue":"\"cart.customer_updated\"","expandable":false,"children":[]},{"name":"REGION_UPDATED","type":"`string`","description":"Emitted when the cart's region is updated. This\nevent is emitted alongside the `cart.updated` event.","optional":false,"defaultValue":"\"cart.region_updated\"","expandable":false,"children":[]},{"name":"CUSTOMER_TRANSFERRED","type":"`string`","description":"Emitted when the customer in the cart is transferred.","optional":false,"defaultValue":"\"cart.customer_transferred\"","expandable":false,"children":[]}]} expandUrl="https://docs.medusajs.com/learn/fundamentals/data-models/manage-relationships#retrieve-records-of-relation" sectionTitle="CartWorkflowEvents"/>
 
 ___
 
 ## Customer
 
-### CustomerWorkflowEvents
-
- `Const` **CustomerWorkflowEvents**: `Object`
-
-#### Properties
-
-<TypeList types={[{"name":"CREATED","type":"`string`","description":"Emitted when a customer is created.","optional":false,"defaultValue":"\"customer.created\"","expandable":false,"children":[]},{"name":"UPDATED","type":"`string`","description":"Emitted when a customer is updated.","optional":false,"defaultValue":"\"customer.updated\"","expandable":false,"children":[]},{"name":"DELETED","type":"`string`","description":"Emitted when a customer is deleted.","optional":false,"defaultValue":"\"customer.deleted\"","expandable":false,"children":[]}]} expandUrl="https://docs.medusajs.com/learn/fundamentals/data-models/manage-relationships#retrieve-records-of-relation" sectionTitle="CustomerWorkflowEvents"/>
-
 ___
 
 ## Fulfillment
-
-### FulfillmentWorkflowEvents
-
- `Const` **FulfillmentWorkflowEvents**: `Object`
-
-#### Properties
-
-<TypeList types={[{"name":"SHIPMENT_CREATED","type":"`string`","description":"Emitted when a shipment is created for an order.","optional":false,"defaultValue":"\"shipment.created\"","expandable":false,"children":[]},{"name":"DELIVERY_CREATED","type":"`string`","description":"Emitted when a fulfillment is marked as delivered.","optional":false,"defaultValue":"\"delivery.created\"","expandable":false,"children":[]}]} expandUrl="https://docs.medusajs.com/learn/fundamentals/data-models/manage-relationships#retrieve-records-of-relation" sectionTitle="FulfillmentWorkflowEvents"/>
 
 ___
 
 ## Invite
 
-### InviteWorkflowEvents
-
- `Const` **InviteWorkflowEvents**: `Object`
-
-#### Properties
-
-<TypeList types={[{"name":"ACCEPTED","type":"`string`","description":"Emitted when an invite is accepted.","optional":false,"defaultValue":"\"invite.accepted\"","expandable":false,"children":[]},{"name":"CREATED","type":"`string`","description":"Emitted when invites are created. You can listen to this event\nto send an email to the invited users, for example.","optional":false,"defaultValue":"\"invite.created\"","expandable":false,"children":[]},{"name":"DELETED","type":"`string`","description":"Emitted when invites are deleted.","optional":false,"defaultValue":"\"invite.deleted\"","expandable":false,"children":[]},{"name":"RESENT","type":"`string`","description":"Emitted when invites should be resent because their token was\nrefreshed. You can listen to this event to send an email to the invited users,\nfor example.","optional":false,"defaultValue":"\"invite.resent\"","expandable":false,"children":[]}]} expandUrl="https://docs.medusajs.com/learn/fundamentals/data-models/manage-relationships#retrieve-records-of-relation" sectionTitle="InviteWorkflowEvents"/>
-
 ___
 
 ## Order
 
-### OrderWorkflowEvents
-
- `Const` **OrderWorkflowEvents**: `Object`
-
-#### Properties
-
-<TypeList types={[{"name":"UPDATED","type":"`string`","description":"Emitted when the details of an order or draft order is updated. This\ndoesn't include updates made by an edit.","optional":false,"defaultValue":"\"order.updated\"","expandable":false,"children":[]},{"name":"PLACED","type":"`string`","description":"Emitted when an order is placed, or when a draft order is converted to an\norder.","optional":false,"defaultValue":"\"order.placed\"","expandable":false,"children":[]},{"name":"CANCELED","type":"`string`","description":"Emitted when an order is canceld.","optional":false,"defaultValue":"\"order.canceled\"","expandable":false,"children":[]},{"name":"COMPLETED","type":"`string`","description":"Emitted when orders are completed.","optional":false,"defaultValue":"\"order.completed\"","expandable":false,"children":[]},{"name":"ARCHIVED","type":"`string`","description":"Emitted when an order is archived.","optional":false,"defaultValue":"\"order.archived\"","expandable":false,"children":[]},{"name":"FULFILLMENT_CREATED","type":"`string`","description":"Emitted when a fulfillment is created for an order.","optional":false,"defaultValue":"\"order.fulfillment_created\"","expandable":false,"children":[]},{"name":"FULFILLMENT_CANCELED","type":"`string`","description":"Emitted when an order's fulfillment is canceled.","optional":false,"defaultValue":"\"order.fulfillment_canceled\"","expandable":false,"children":[]},{"name":"RETURN_REQUESTED","type":"`string`","description":"Emitted when a return request is confirmed.","optional":false,"defaultValue":"\"order.return_requested\"","expandable":false,"children":[]},{"name":"RETURN_RECEIVED","type":"`string`","description":"Emitted when a return is marked as received.","optional":false,"defaultValue":"\"order.return_received\"","expandable":false,"children":[]},{"name":"CLAIM_CREATED","type":"`string`","description":"Emitted when a claim is created for an order.","optional":false,"defaultValue":"\"order.claim_created\"","expandable":false,"children":[]},{"name":"EXCHANGE_CREATED","type":"`string`","description":"Emitted when an exchange is created for an order.","optional":false,"defaultValue":"\"order.exchange_created\"","expandable":false,"children":[]},{"name":"TRANSFER_REQUESTED","type":"`string`","description":"Emitted when an order is requested to be transferred to\nanother customer.","optional":false,"defaultValue":"\"order.transfer_requested\"","expandable":false,"children":[]}]} expandUrl="https://docs.medusajs.com/learn/fundamentals/data-models/manage-relationships#retrieve-records-of-relation" sectionTitle="OrderWorkflowEvents"/>
-
 ___
 
 ## Order Edit
-
-### OrderEditWorkflowEvents
-
- `Const` **OrderEditWorkflowEvents**: `Object`
-
-#### Properties
-
-<TypeList types={[{"name":"REQUESTED","type":"`string`","description":"Emitted when an order edit is requested.","optional":false,"defaultValue":"\"order-edit.requested\"","expandable":false,"children":[]},{"name":"CONFIRMED","type":"`string`","description":"Emitted when an order edit request is confirmed.","optional":false,"defaultValue":"\"order-edit.confirmed\"","expandable":false,"children":[]},{"name":"CANCELED","type":"`string`","description":"Emitted when an order edit request is canceled.","optional":false,"defaultValue":"\"order-edit.canceled\"","expandable":false,"children":[]}]} expandUrl="https://docs.medusajs.com/learn/fundamentals/data-models/manage-relationships#retrieve-records-of-relation" sectionTitle="OrderEditWorkflowEvents"/>
 
 ___
 
@@ -122,118 +66,38 @@ ___
 
 ## Product
 
-### ProductWorkflowEvents
-
- `Const` **ProductWorkflowEvents**: `Object`
-
-#### Properties
-
-<TypeList types={[{"name":"UPDATED","type":"`string`","description":"Emitted when products are updated.","optional":false,"defaultValue":"\"product.updated\"","expandable":false,"children":[]},{"name":"CREATED","type":"`string`","description":"Emitted when products are created.","optional":false,"defaultValue":"\"product.created\"","expandable":false,"children":[]},{"name":"DELETED","type":"`string`","description":"Emitted when products are deleted.","optional":false,"defaultValue":"\"product.deleted\"","expandable":false,"children":[]}]} expandUrl="https://docs.medusajs.com/learn/fundamentals/data-models/manage-relationships#retrieve-records-of-relation" sectionTitle="ProductWorkflowEvents"/>
-
 ___
 
 ## Product Category
-
-### ProductCategoryWorkflowEvents
-
- `Const` **ProductCategoryWorkflowEvents**: `Object`
-
-#### Properties
-
-<TypeList types={[{"name":"CREATED","type":"`string`","description":"Emitted when product categories are created.","optional":false,"defaultValue":"\"product-category.created\"","expandable":false,"children":[]},{"name":"UPDATED","type":"`string`","description":"Emitted when product categories are updated.","optional":false,"defaultValue":"\"product-category.updated\"","expandable":false,"children":[]},{"name":"DELETED","type":"`string`","description":"Emitted when product categories are deleted.","optional":false,"defaultValue":"\"product-category.deleted\"","expandable":false,"children":[]}]} expandUrl="https://docs.medusajs.com/learn/fundamentals/data-models/manage-relationships#retrieve-records-of-relation" sectionTitle="ProductCategoryWorkflowEvents"/>
 
 ___
 
 ## Product Collection
 
-### ProductCollectionWorkflowEvents
-
- `Const` **ProductCollectionWorkflowEvents**: `Object`
-
-#### Properties
-
-<TypeList types={[{"name":"CREATED","type":"`string`","description":"Emitted when product collections are created.","optional":false,"defaultValue":"\"product-collection.created\"","expandable":false,"children":[]},{"name":"UPDATED","type":"`string`","description":"Emitted when product collections are updated.","optional":false,"defaultValue":"\"product-collection.updated\"","expandable":false,"children":[]},{"name":"DELETED","type":"`string`","description":"Emitted when product collections are deleted.","optional":false,"defaultValue":"\"product-collection.deleted\"","expandable":false,"children":[]}]} expandUrl="https://docs.medusajs.com/learn/fundamentals/data-models/manage-relationships#retrieve-records-of-relation" sectionTitle="ProductCollectionWorkflowEvents"/>
-
 ___
 
 ## Product Option
-
-### ProductOptionWorkflowEvents
-
- `Const` **ProductOptionWorkflowEvents**: `Object`
-
-#### Properties
-
-<TypeList types={[{"name":"UPDATED","type":"`string`","description":"Emitted when product options are updated.","optional":false,"defaultValue":"\"product-option.updated\"","expandable":false,"children":[]},{"name":"CREATED","type":"`string`","description":"Emitted when product options are created.","optional":false,"defaultValue":"\"product-option.created\"","expandable":false,"children":[]},{"name":"DELETED","type":"`string`","description":"Emitted when product options are deleted.","optional":false,"defaultValue":"\"product-option.deleted\"","expandable":false,"children":[]}]} expandUrl="https://docs.medusajs.com/learn/fundamentals/data-models/manage-relationships#retrieve-records-of-relation" sectionTitle="ProductOptionWorkflowEvents"/>
 
 ___
 
 ## Product Tag
 
-### ProductTagWorkflowEvents
-
- `Const` **ProductTagWorkflowEvents**: `Object`
-
-#### Properties
-
-<TypeList types={[{"name":"UPDATED","type":"`string`","description":"Emitted when product tags are updated.","optional":false,"defaultValue":"\"product-tag.updated\"","expandable":false,"children":[]},{"name":"CREATED","type":"`string`","description":"Emitted when product tags are created.","optional":false,"defaultValue":"\"product-tag.created\"","expandable":false,"children":[]},{"name":"DELETED","type":"`string`","description":"Emitted when product tags are deleted.","optional":false,"defaultValue":"\"product-tag.deleted\"","expandable":false,"children":[]}]} expandUrl="https://docs.medusajs.com/learn/fundamentals/data-models/manage-relationships#retrieve-records-of-relation" sectionTitle="ProductTagWorkflowEvents"/>
-
 ___
 
 ## Product Type
-
-### ProductTypeWorkflowEvents
-
- `Const` **ProductTypeWorkflowEvents**: `Object`
-
-#### Properties
-
-<TypeList types={[{"name":"UPDATED","type":"`string`","description":"Emitted when product types are updated.","optional":false,"defaultValue":"\"product-type.updated\"","expandable":false,"children":[]},{"name":"CREATED","type":"`string`","description":"Emitted when product types are created.","optional":false,"defaultValue":"\"product-type.created\"","expandable":false,"children":[]},{"name":"DELETED","type":"`string`","description":"Emitted when product types are deleted.","optional":false,"defaultValue":"\"product-type.deleted\"","expandable":false,"children":[]}]} expandUrl="https://docs.medusajs.com/learn/fundamentals/data-models/manage-relationships#retrieve-records-of-relation" sectionTitle="ProductTypeWorkflowEvents"/>
 
 ___
 
 ## Product Variant
 
-### ProductVariantWorkflowEvents
-
- `Const` **ProductVariantWorkflowEvents**: `Object`
-
-#### Properties
-
-<TypeList types={[{"name":"UPDATED","type":"`string`","description":"Emitted when product variants are updated.","optional":false,"defaultValue":"\"product-variant.updated\"","expandable":false,"children":[]},{"name":"CREATED","type":"`string`","description":"Emitted when product variants are created.","optional":false,"defaultValue":"\"product-variant.created\"","expandable":false,"children":[]},{"name":"DELETED","type":"`string`","description":"Emitted when product variants are deleted.","optional":false,"defaultValue":"\"product-variant.deleted\"","expandable":false,"children":[]}]} expandUrl="https://docs.medusajs.com/learn/fundamentals/data-models/manage-relationships#retrieve-records-of-relation" sectionTitle="ProductVariantWorkflowEvents"/>
-
 ___
 
 ## Region
-
-### RegionWorkflowEvents
-
- `Const` **RegionWorkflowEvents**: `Object`
-
-#### Properties
-
-<TypeList types={[{"name":"UPDATED","type":"`string`","description":"Emitted when regions are updated.","optional":false,"defaultValue":"\"region.updated\"","expandable":false,"children":[]},{"name":"CREATED","type":"`string`","description":"Emitted when regions are created.","optional":false,"defaultValue":"\"region.created\"","expandable":false,"children":[]},{"name":"DELETED","type":"`string`","description":"Emitted when regions are deleted.","optional":false,"defaultValue":"\"region.deleted\"","expandable":false,"children":[]}]} expandUrl="https://docs.medusajs.com/learn/fundamentals/data-models/manage-relationships#retrieve-records-of-relation" sectionTitle="RegionWorkflowEvents"/>
 
 ___
 
 ## Sales Channel
 
-### SalesChannelWorkflowEvents
-
- `Const` **SalesChannelWorkflowEvents**: `Object`
-
-#### Properties
-
-<TypeList types={[{"name":"CREATED","type":"`string`","description":"Emitted when sales channels are created.","optional":false,"defaultValue":"\"sales-channel.created\"","expandable":false,"children":[]},{"name":"UPDATED","type":"`string`","description":"Emitted when sales channels are updated.","optional":false,"defaultValue":"\"sales-channel.updated\"","expandable":false,"children":[]},{"name":"DELETED","type":"`string`","description":"Emitted when sales channels are deleted.","optional":false,"defaultValue":"\"sales-channel.deleted\"","expandable":false,"children":[]}]} expandUrl="https://docs.medusajs.com/learn/fundamentals/data-models/manage-relationships#retrieve-records-of-relation" sectionTitle="SalesChannelWorkflowEvents"/>
-
 ___
 
 ## User
-
-### UserWorkflowEvents
-
- `Const` **UserWorkflowEvents**: `Object`
-
-#### Properties
-
-<TypeList types={[{"name":"CREATED","type":"`string`","description":"Emitted when users are created.","optional":false,"defaultValue":"\"user.created\"","expandable":false,"children":[]},{"name":"UPDATED","type":"`string`","description":"Emitted when users are updated.","optional":false,"defaultValue":"\"user.updated\"","expandable":false,"children":[]},{"name":"DELETED","type":"`string`","description":"Emitted when users are deleted.","optional":false,"defaultValue":"\"user.deleted\"","expandable":false,"children":[]}]} expandUrl="https://docs.medusajs.com/learn/fundamentals/data-models/manage-relationships#retrieve-records-of-relation" sectionTitle="UserWorkflowEvents"/>

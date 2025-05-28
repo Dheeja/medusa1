@@ -1,6 +1,7 @@
 import { Link } from "@medusajs/modules-sdk"
 import {
   ConfigModule,
+  IAnalyticsModuleService,
   IApiKeyModuleService,
   IAuthModuleService,
   ICacheService,
@@ -48,6 +49,7 @@ declare module "@medusajs/types" {
     [ContainerRegistrationKeys.REMOTE_QUERY]: RemoteQueryFunction
     [ContainerRegistrationKeys.QUERY]: Omit<RemoteQueryFunction, symbol>
     [ContainerRegistrationKeys.LOGGER]: Logger
+    [Modules.ANALYTICS]: IAnalyticsModuleService
     [Modules.AUTH]: IAuthModuleService
     [Modules.CACHE]: ICacheService
     [Modules.CART]: ICartModuleService

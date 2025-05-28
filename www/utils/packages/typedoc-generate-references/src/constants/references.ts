@@ -32,7 +32,6 @@ const allReferences = [
   "modules-sdk",
   "notification",
   "payment-provider",
-  "search",
   "tax-provider",
   "types",
   "utils",
@@ -44,6 +43,8 @@ const allReferences = [
   "notification-service",
   "events",
   "module-events",
+  "analytics",
+  "analytics-provider",
 ]
 
 export default allReferences

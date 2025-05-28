@@ -32,8 +32,16 @@ export const tutorial = [
     "path": "https://docs.medusajs.com/resources/how-to-tutorials/tutorials/loyalty-points"
   },
   {
+    "title": "Phone Authentication",
+    "path": "https://docs.medusajs.com/resources/how-to-tutorials/tutorials/phone-auth"
+  },
+  {
     "title": "Product Reviews",
     "path": "https://docs.medusajs.com/resources/how-to-tutorials/tutorials/product-reviews"
+  },
+  {
+    "title": "Re-Order",
+    "path": "https://docs.medusajs.com/resources/how-to-tutorials/tutorials/re-order"
   },
   {
     "title": "Saved Payment Methods",
@@ -42,6 +50,10 @@ export const tutorial = [
   {
     "title": "Integrate Contentful",
     "path": "https://docs.medusajs.com/resources/integrations/guides/contentful"
+  },
+  {
+    "title": "Integrate Segment",
+    "path": "https://docs.medusajs.com/resources/integrations/guides/segment"
   },
   {
     "title": "Build Wishlist Plugin",

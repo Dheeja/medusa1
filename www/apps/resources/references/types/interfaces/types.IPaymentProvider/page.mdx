@@ -86,8 +86,15 @@ import { TypeList } from "docs-ui"
 
 ### createAccountHolder
 
+<BadgesList badges={[
+  {
+    "variant": "neutral",
+    "children": "optional"
+  }
+]} className="mb-1" />
+
 This method is used when creating an account holder in Medusa, allowing you to create
-the equivalent account in the third-party service. An account holder is useful to
+the equivalent account in the third-party payment provider. An account holder is useful to
 later save payment methods, such as credit cards, for a customer in the
 third-party payment provider using the [savePaymentMethod](page.mdx#savepaymentmethod) method.
 
@@ -147,8 +154,15 @@ class MyPaymentProviderService extends AbstractPaymentProvider<
 
 ### updateAccountHolder
 
+<BadgesList badges={[
+  {
+    "variant": "neutral",
+    "children": "optional"
+  }
+]} className="mb-1" />
+
 This method is used when updating an account holder in Medusa, allowing you to update
-the equivalent account in the third-party service.
+the equivalent account in the third-party payment provider.
 
 The returned data will be stored in the account holder created in Medusa. For example,
 the returned `id` property will be stored in the account holder's `external_id` property.
@@ -200,8 +214,15 @@ class MyPaymentProviderService extends AbstractPaymentProvider<
 
 ### deleteAccountHolder
 
+<BadgesList badges={[
+  {
+    "variant": "neutral",
+    "children": "optional"
+  }
+]} className="mb-1" />
+
 This method is used when an account holder is deleted in Medusa, allowing you
-to also delete the equivalent account holder in the third-party service.
+to also delete the equivalent account holder in the third-party payment provider.
 
 :::note
 
@@ -246,6 +267,13 @@ class MyPaymentProviderService extends AbstractPaymentProvider<
 <TypeList types={[{"name":"Promise","type":"Promise&#60;[DeleteAccountHolderOutput](../types.DeleteAccountHolderOutput/page.mdx)&#62;","optional":false,"defaultValue":"","description":"The result of deleting the account holder. If an error occurs, throw it.","expandable":false,"children":[{"name":"data","type":"`Record<string, unknown>`","description":"The unstructured data returned from the payment provider. The content will vary between providers.","optional":true,"defaultValue":"","expandable":false,"children":[]}]}]} expandUrl="https://docs.medusajs.com/learn/fundamentals/data-models/manage-relationships#retrieve-records-of-relation" sectionTitle="deleteAccountHolder"/>
 
 ### listPaymentMethods
+
+<BadgesList badges={[
+  {
+    "variant": "neutral",
+    "children": "optional"
+  }
+]} className="mb-1" />
 
 This method is used to retrieve the list of saved payment methods for an account holder
 in the third-party payment provider. A payment provider that supports saving payment methods
@@ -298,6 +326,13 @@ class MyPaymentProviderService extends AbstractPaymentProvider<
 <TypeList types={[{"name":"Promise","type":"Promise&#60;[ListPaymentMethodsOutput](../types.ListPaymentMethodsOutput/page.mdx)&#62;","optional":false,"defaultValue":"","description":"The list of payment methods saved for the account holder. If an error occurs, throw it.","expandable":false,"children":[{"name":"ListPaymentMethodsOutput","type":"`object`","description":"The result of listing payment methods for an account holder in the third-party payment provider.","optional":false,"defaultValue":"","expandable":false,"children":[]}]}]} expandUrl="https://docs.medusajs.com/learn/fundamentals/data-models/manage-relationships#retrieve-records-of-relation" sectionTitle="listPaymentMethods"/>
 
 ### savePaymentMethod
+
+<BadgesList badges={[
+  {
+    "variant": "neutral",
+    "children": "optional"
+  }
+]} className="mb-1" />
 
 This method is used to save a customer's payment method, such as a credit card, in the
 third-party payment provider. A payment provider that supports saving payment methods
@@ -369,4 +404,4 @@ class MyPaymentProviderService extends AbstractPaymentProvider<
 
 #### Returns
 
-<TypeList types={[{"name":"Promise","type":"Promise&#60;[WebhookActionResult](../types.WebhookActionResult/page.mdx)&#62;","optional":false,"defaultValue":"","description":"","expandable":false,"children":[{"name":"action","type":"[PaymentActions](../../types/types.PaymentActions/page.mdx)","description":"Normalized events from payment provider to internal payment module events.","optional":false,"defaultValue":"","expandable":false,"children":[]},{"name":"data","type":"[WebhookActionData](../types.WebhookActionData/page.mdx)","description":"The webhook action's details.","optional":true,"defaultValue":"","expandable":false,"children":[{"name":"session_id","type":"`string`","description":"The associated payment session's ID.","optional":false,"defaultValue":"","expandable":false,"children":[]},{"name":"amount","type":"[BigNumberValue](../../types/types.BigNumberValue/page.mdx)","description":"The amount to be captured or authorized (based on the action's type.)","optional":false,"defaultValue":"","expandable":false,"children":[]}]}]}]} expandUrl="https://docs.medusajs.com/learn/fundamentals/data-models/manage-relationships#retrieve-records-of-relation" sectionTitle="getWebhookActionAndData"/>
+<TypeList types={[{"name":"Promise","type":"Promise&#60;[WebhookActionResult](../types.WebhookActionResult/page.mdx)&#62;","optional":false,"defaultValue":"","description":"","expandable":false,"children":[{"name":"action","type":"[PaymentActions](../../types/types.PaymentActions/page.mdx)","description":"The action that was performed so that Medusa can handle it internally.","optional":false,"defaultValue":"","expandable":false,"children":[]},{"name":"data","type":"[WebhookActionData](../types.WebhookActionData/page.mdx)","description":"The webhook action's details.","optional":true,"defaultValue":"","expandable":false,"children":[{"name":"session_id","type":"`string`","description":"The ID of the payment session in Medusa.\nMake sure to store this ID in the third-party payment provider\nto be able to retrieve the payment session later.","optional":false,"defaultValue":"","expandable":false,"children":[]},{"name":"amount","type":"[BigNumberValue](../../types/types.BigNumberValue/page.mdx)","description":"The amount to be captured or authorized (based on the action's type.)","optional":false,"defaultValue":"","expandable":false,"children":[]}]}]}]} expandUrl="https://docs.medusajs.com/learn/fundamentals/data-models/manage-relationships#retrieve-records-of-relation" sectionTitle="getWebhookActionAndData"/>

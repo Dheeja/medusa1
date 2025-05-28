@@ -44,8 +44,7 @@ export function buildModuleResourceEventName({
   action: string
 }): string {
   const kebabCaseName = lowerCaseFirst(kebabCase(objectName))
-  const conventionalePrefix = prefix && lowerCaseFirst(kebabCase(prefix))
-  return `${prefix ? `${conventionalePrefix}.` : ""}${kebabCaseName}.${action}`
+  return `${prefix ? `${prefix}.` : ""}${kebabCaseName}.${action}`
 }
 
 /**

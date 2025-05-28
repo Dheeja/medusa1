@@ -654,7 +654,7 @@ moduleIntegrationTestRunner<IWorkflowEngineService>({
             "workflow_transaction_timeout",
             {
               input: {},
-              transactionId: "trx",
+              transactionId: "trx" + ulid(),
               throwOnError: false,
             }
           )) as Awaited<{
@@ -662,6 +662,8 @@ moduleIntegrationTestRunner<IWorkflowEngineService>({
             result: any
             errors: any
           }>
+
+          await setTimeout(500)
 
           expect(transaction.getFlow().state).toEqual("reverted")
           expect(result).toEqual({ executed: true })
@@ -710,9 +712,10 @@ moduleIntegrationTestRunner<IWorkflowEngineService>({
         })
 
         it("should revert the entire transaction when the transaction timeout expires in a transaction containing an async step", async () => {
+          const transactionId = "transaction_1" + ulid()
           await workflowOrcModule.run("workflow_transaction_timeout_async", {
             input: {},
-            transactionId: "transaction_1",
+            transactionId,
             throwOnError: false,
           })
 
@@ -722,7 +725,7 @@ moduleIntegrationTestRunner<IWorkflowEngineService>({
             "workflow_transaction_timeout_async",
             {
               input: {},
-              transactionId: "transaction_1",
+              transactionId,
               throwOnError: false,
             }
           )) as Awaited<{
@@ -734,7 +737,7 @@ moduleIntegrationTestRunner<IWorkflowEngineService>({
           expect(transaction.getFlow().state).toEqual("reverted")
           expect(result).toEqual(undefined)
           expect(errors).toHaveLength(1)
-          expect(errors[0].action).toEqual("step_1")
+          expect(errors[0].action).toEqual("step_1_async")
           expect(
             TransactionTimeoutError.isTransactionTimeoutError(errors[0].error)
           ).toBe(true)

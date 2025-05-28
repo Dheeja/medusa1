@@ -6,7 +6,7 @@ import {
 import { Modules } from "@medusajs/framework/utils"
 import { StepResponse, createStep } from "@medusajs/framework/workflows-sdk"
 import { normalizeForExport } from "../helpers/normalize-for-export"
-import { convertJsonToCsv } from "../utlils"
+import { convertJsonToCsv } from "../utils"
 
 const prodColumnPositions = new Map([
   ["Product Id", 0],
@@ -81,13 +81,13 @@ export const generateProductCsvStepId = "generate-product-csv"
 /**
  * This step generates a CSV file that exports products. The CSV
  * file is created and stored using the registered [File Module Provider](https://docs.medusajs.com/resources/infrastructure-modules/file).
- * 
+ *
  * @example
  * const { data: products } = useQueryGraphStep({
  *   entity: "product",
  *   fields: ["*", "variants.*", "collection.*", "categories.*"]
  * })
- * 
+ *
  * // @ts-ignore
  * const data = generateProductCsvStep(products)
  */
@@ -118,7 +118,7 @@ export const generateProductCsvStep = createStep(
     })
 
     return new StepResponse(
-      { id: file.id, filename } as GenerateProductCsvStepOutput, 
+      { id: file.id, filename } as GenerateProductCsvStepOutput,
       file.id
     )
   },

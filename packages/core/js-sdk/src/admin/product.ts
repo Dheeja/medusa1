@@ -65,7 +65,7 @@ export class Product {
    * This method sends a request to the
    * [Create Product Import](https://docs.medusajs.com/api/admin#products_postproductsimports)
    * API route.
-   * 
+   *
    * @version 2.8.0
    * @ignore
    * @privateRemarks

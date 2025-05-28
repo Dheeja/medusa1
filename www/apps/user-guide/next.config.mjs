@@ -33,6 +33,10 @@ const withMDX = mdx({
               projectPath: path.resolve("..", "resources"),
               hasGeneratedSlugs: true,
             },
+            api: {
+              projectPath: path.resolve("..", "api-reference"),
+              skipSlugValidation: true,
+            },
           },
         },
       ],

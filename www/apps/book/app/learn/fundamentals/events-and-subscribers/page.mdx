@@ -34,7 +34,7 @@ Find a list of all emitted events in [this reference](!resources!/references/eve
 
 You create a subscriber in a TypeScript or JavaScript file under the `src/subscribers` directory. The file exports the function to execute and the subscriber's configuration that indicate what event(s) it listens to.
 
-For example, create the file `src/subscribers/order-placed.ts` with the following content:
+For example, create the file `src/subscribers/product-created.ts` with the following content:
 
 ![Example of subscriber file in the application's directory structure](https://res.cloudinary.com/dza7lstvk/image/upload/v1732866244/Medusa%20Book/subscriber-dir-overview_pusyeu.jpg)
 
@@ -85,7 +85,7 @@ To test the subscriber, start the Medusa application:
 npm run dev
 ```
 
-Then, try placing an order either using Medusa's API routes or the [Next.js Storefront](!resources!/nextjs-starter). You'll see the following message in the terminal:
+Then, try placing an order either using Medusa's API routes or the [Next.js Starter Storefront](!resources!/nextjs-starter). You'll see the following message in the terminal:
 
 ```bash
 info:    Processing order.placed which has 1 subscribers

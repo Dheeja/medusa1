@@ -65,11 +65,11 @@ describe("CSV processor", () => {
                 },
                 "prices": [
                   {
-                    "amount": "10",
+                    "amount": 10,
                     "currency_code": "eur",
                   },
                   {
-                    "amount": "15",
+                    "amount": 15,
                     "currency_code": "usd",
                   },
                 ],
@@ -78,7 +78,7 @@ describe("CSV processor", () => {
                 "variant_rank": 0,
               },
             ],
-            "weight": "400",
+            "weight": 400,
           },
         },
         "toUpdate": {},
@@ -136,11 +136,11 @@ describe("CSV processor", () => {
                 },
                 "prices": [
                   {
-                    "amount": "10",
+                    "amount": 10,
                     "currency_code": "eur",
                   },
                   {
-                    "amount": "15",
+                    "amount": 15,
                     "currency_code": "usd",
                   },
                 ],
@@ -157,11 +157,11 @@ describe("CSV processor", () => {
                 },
                 "prices": [
                   {
-                    "amount": "10",
+                    "amount": 10,
                     "currency_code": "eur",
                   },
                   {
-                    "amount": "15",
+                    "amount": 15,
                     "currency_code": "usd",
                   },
                 ],
@@ -178,11 +178,11 @@ describe("CSV processor", () => {
                 },
                 "prices": [
                   {
-                    "amount": "10",
+                    "amount": 10,
                     "currency_code": "eur",
                   },
                   {
-                    "amount": "15",
+                    "amount": 15,
                     "currency_code": "usd",
                   },
                 ],
@@ -191,7 +191,7 @@ describe("CSV processor", () => {
                 "variant_rank": 0,
               },
             ],
-            "weight": "400",
+            "weight": 400,
           },
         },
         "toUpdate": {},
@@ -258,11 +258,11 @@ describe("CSV processor", () => {
                 },
                 "prices": [
                   {
-                    "amount": "10",
+                    "amount": 10,
                     "currency_code": "eur",
                   },
                   {
-                    "amount": "15",
+                    "amount": 15,
                     "currency_code": "usd",
                   },
                 ],
@@ -280,11 +280,11 @@ describe("CSV processor", () => {
                 },
                 "prices": [
                   {
-                    "amount": "10",
+                    "amount": 10,
                     "currency_code": "eur",
                   },
                   {
-                    "amount": "15",
+                    "amount": 15,
                     "currency_code": "usd",
                   },
                 ],
@@ -303,11 +303,11 @@ describe("CSV processor", () => {
                 "origin_country": "EU",
                 "prices": [
                   {
-                    "amount": "10",
+                    "amount": 10,
                     "currency_code": "eur",
                   },
                   {
-                    "amount": "15",
+                    "amount": 15,
                     "currency_code": "usd",
                   },
                 ],
@@ -316,7 +316,7 @@ describe("CSV processor", () => {
                 "variant_rank": 0,
               },
             ],
-            "weight": "400",
+            "weight": 400,
           },
         },
         "toUpdate": {},
@@ -377,11 +377,11 @@ describe("CSV processor", () => {
                 },
                 "prices": [
                   {
-                    "amount": "10",
+                    "amount": 10,
                     "currency_code": "eur",
                   },
                   {
-                    "amount": "15",
+                    "amount": 15,
                     "currency_code": "usd",
                   },
                 ],
@@ -398,11 +398,11 @@ describe("CSV processor", () => {
                 },
                 "prices": [
                   {
-                    "amount": "10",
+                    "amount": 10,
                     "currency_code": "eur",
                   },
                   {
-                    "amount": "15",
+                    "amount": 15,
                     "currency_code": "usd",
                   },
                 ],
@@ -419,11 +419,11 @@ describe("CSV processor", () => {
                 },
                 "prices": [
                   {
-                    "amount": "10",
+                    "amount": 10,
                     "currency_code": "eur",
                   },
                   {
-                    "amount": "15",
+                    "amount": 15,
                     "currency_code": "usd",
                   },
                 ],
@@ -440,11 +440,11 @@ describe("CSV processor", () => {
                 },
                 "prices": [
                   {
-                    "amount": "10",
+                    "amount": 10,
                     "currency_code": "eur",
                   },
                   {
-                    "amount": "15",
+                    "amount": 15,
                     "currency_code": "usd",
                   },
                 ],
@@ -453,7 +453,7 @@ describe("CSV processor", () => {
                 "variant_rank": 0,
               },
             ],
-            "weight": "400",
+            "weight": 400,
           },
           "sweatpants": {
             "categories": [],
@@ -498,11 +498,11 @@ describe("CSV processor", () => {
                 },
                 "prices": [
                   {
-                    "amount": "10",
+                    "amount": 10,
                     "currency_code": "eur",
                   },
                   {
-                    "amount": "15",
+                    "amount": 15,
                     "currency_code": "usd",
                   },
                 ],
@@ -519,11 +519,11 @@ describe("CSV processor", () => {
                 },
                 "prices": [
                   {
-                    "amount": "10",
+                    "amount": 10,
                     "currency_code": "eur",
                   },
                   {
-                    "amount": "15",
+                    "amount": 15,
                     "currency_code": "usd",
                   },
                 ],
@@ -540,11 +540,11 @@ describe("CSV processor", () => {
                 },
                 "prices": [
                   {
-                    "amount": "10",
+                    "amount": 10,
                     "currency_code": "eur",
                   },
                   {
-                    "amount": "15",
+                    "amount": 15,
                     "currency_code": "usd",
                   },
                 ],
@@ -561,11 +561,11 @@ describe("CSV processor", () => {
                 },
                 "prices": [
                   {
-                    "amount": "10",
+                    "amount": 10,
                     "currency_code": "eur",
                   },
                   {
-                    "amount": "15",
+                    "amount": 15,
                     "currency_code": "usd",
                   },
                 ],
@@ -574,7 +574,7 @@ describe("CSV processor", () => {
                 "variant_rank": 0,
               },
             ],
-            "weight": "400",
+            "weight": 400,
           },
           "t-shirt": {
             "categories": [],
@@ -600,24 +600,14 @@ describe("CSV processor", () => {
                 "title": "Size",
                 "values": [
                   "S",
-                  "S",
-                  "M",
                   "M",
                   "L",
-                  "L",
-                  "XL",
                   "XL",
                 ],
               },
               {
                 "title": "Color",
                 "values": [
-                  "Black",
-                  "White",
-                  "Black",
-                  "White",
-                  "Black",
-                  "White",
                   "Black",
                   "White",
                 ],
@@ -643,11 +633,11 @@ describe("CSV processor", () => {
                 },
                 "prices": [
                   {
-                    "amount": "10",
+                    "amount": 10,
                     "currency_code": "eur",
                   },
                   {
-                    "amount": "15",
+                    "amount": 15,
                     "currency_code": "usd",
                   },
                 ],
@@ -665,11 +655,11 @@ describe("CSV processor", () => {
                 },
                 "prices": [
                   {
-                    "amount": "10",
+                    "amount": 10,
                     "currency_code": "eur",
                   },
                   {
-                    "amount": "15",
+                    "amount": 15,
                     "currency_code": "usd",
                   },
                 ],
@@ -687,11 +677,11 @@ describe("CSV processor", () => {
                 },
                 "prices": [
                   {
-                    "amount": "10",
+                    "amount": 10,
                     "currency_code": "eur",
                   },
                   {
-                    "amount": "15",
+                    "amount": 15,
                     "currency_code": "usd",
                   },
                 ],
@@ -709,11 +699,11 @@ describe("CSV processor", () => {
                 },
                 "prices": [
                   {
-                    "amount": "10",
+                    "amount": 10,
                     "currency_code": "eur",
                   },
                   {
-                    "amount": "15",
+                    "amount": 15,
                     "currency_code": "usd",
                   },
                 ],
@@ -731,11 +721,11 @@ describe("CSV processor", () => {
                 },
                 "prices": [
                   {
-                    "amount": "10",
+                    "amount": 10,
                     "currency_code": "eur",
                   },
                   {
-                    "amount": "15",
+                    "amount": 15,
                     "currency_code": "usd",
                   },
                 ],
@@ -753,11 +743,11 @@ describe("CSV processor", () => {
                 },
                 "prices": [
                   {
-                    "amount": "10",
+                    "amount": 10,
                     "currency_code": "eur",
                   },
                   {
-                    "amount": "15",
+                    "amount": 15,
                     "currency_code": "usd",
                   },
                 ],
@@ -775,11 +765,11 @@ describe("CSV processor", () => {
                 },
                 "prices": [
                   {
-                    "amount": "10",
+                    "amount": 10,
                     "currency_code": "eur",
                   },
                   {
-                    "amount": "15",
+                    "amount": 15,
                     "currency_code": "usd",
                   },
                 ],
@@ -797,11 +787,11 @@ describe("CSV processor", () => {
                 },
                 "prices": [
                   {
-                    "amount": "10",
+                    "amount": 10,
                     "currency_code": "eur",
                   },
                   {
-                    "amount": "15",
+                    "amount": 15,
                     "currency_code": "usd",
                   },
                 ],
@@ -810,7 +800,7 @@ describe("CSV processor", () => {
                 "variant_rank": 0,
               },
             ],
-            "weight": "400",
+            "weight": 400,
           },
         },
         "toUpdate": {
@@ -858,11 +848,11 @@ describe("CSV processor", () => {
                 },
                 "prices": [
                   {
-                    "amount": "10",
+                    "amount": 10,
                     "currency_code": "eur",
                   },
                   {
-                    "amount": "15",
+                    "amount": 15,
                     "currency_code": "usd",
                   },
                 ],
@@ -879,11 +869,11 @@ describe("CSV processor", () => {
                 },
                 "prices": [
                   {
-                    "amount": "10",
+                    "amount": 10,
                     "currency_code": "eur",
                   },
                   {
-                    "amount": "15",
+                    "amount": 15,
                     "currency_code": "usd",
                   },
                 ],
@@ -900,11 +890,11 @@ describe("CSV processor", () => {
                 },
                 "prices": [
                   {
-                    "amount": "10",
+                    "amount": 10,
                     "currency_code": "eur",
                   },
                   {
-                    "amount": "15",
+                    "amount": 15,
                     "currency_code": "usd",
                   },
                 ],
@@ -921,11 +911,11 @@ describe("CSV processor", () => {
                 },
                 "prices": [
                   {
-                    "amount": "10",
+                    "amount": 10,
                     "currency_code": "eur",
                   },
                   {
-                    "amount": "15",
+                    "amount": 15,
                     "currency_code": "usd",
                   },
                 ],
@@ -934,7 +924,7 @@ describe("CSV processor", () => {
                 "variant_rank": 0,
               },
             ],
-            "weight": "400",
+            "weight": 400,
           },
           "prod_01JT598HEWAE555V0A6BD602MG": {
             "categories": [],
@@ -970,11 +960,11 @@ describe("CSV processor", () => {
                 },
                 "prices": [
                   {
-                    "amount": "1000",
+                    "amount": 1000,
                     "currency_code": "eur",
                   },
                   {
-                    "amount": "1200",
+                    "amount": 1200,
                     "currency_code": "usd",
                   },
                 ],
@@ -982,7 +972,7 @@ describe("CSV processor", () => {
                 "variant_rank": 0,
               },
             ],
-            "weight": "400",
+            "weight": 400,
           },
           "prod_01JT598HEX26EHDG7SRK37Q3FG": {
             "categories": [],
@@ -1024,11 +1014,11 @@ describe("CSV processor", () => {
                 },
                 "prices": [
                   {
-                    "amount": "2950",
+                    "amount": 2950,
                     "currency_code": "eur",
                   },
                   {
-                    "amount": "3350",
+                    "amount": 3350,
                     "currency_code": "usd",
                   },
                 ],
@@ -1044,11 +1034,11 @@ describe("CSV processor", () => {
                 },
                 "prices": [
                   {
-                    "amount": "2950",
+                    "amount": 2950,
                     "currency_code": "eur",
                   },
                   {
-                    "amount": "3350",
+                    "amount": 3350,
                     "currency_code": "usd",
                   },
                 ],
@@ -1064,11 +1054,11 @@ describe("CSV processor", () => {
                 },
                 "prices": [
                   {
-                    "amount": "2950",
+                    "amount": 2950,
                     "currency_code": "eur",
                   },
                   {
-                    "amount": "3350",
+                    "amount": 3350,
                     "currency_code": "usd",
                   },
                 ],
@@ -1084,11 +1074,11 @@ describe("CSV processor", () => {
                 },
                 "prices": [
                   {
-                    "amount": "2950",
+                    "amount": 2950,
                     "currency_code": "eur",
                   },
                   {
-                    "amount": "3350",
+                    "amount": 3350,
                     "currency_code": "usd",
                   },
                 ],
@@ -1096,7 +1086,7 @@ describe("CSV processor", () => {
                 "variant_rank": 0,
               },
             ],
-            "weight": "400",
+            "weight": 400,
           },
         },
       }

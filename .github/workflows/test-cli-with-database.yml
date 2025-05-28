@@ -54,7 +54,7 @@ jobs:
           extension: cli-database
 
       - name: Install Medusa cli
-        run: npm i -g @medusajs/cli@latest
+        run: npm i -g @medusajs/cli@preview
 
       - name: Create Medusa project
         working-directory: ..

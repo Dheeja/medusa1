@@ -13,6 +13,7 @@ export declare type OpenApiOperation = Partial<OpenAPIV3.OperationObject> & {
   "x-events"?: OasEvent[]
   "x-deprecated_message"?: string
   "x-version"?: string
+  "x-featureFlag"?: string
 }
 
 export declare type CommonCliOptions = {
@@ -23,6 +24,7 @@ export declare type CommonCliOptions = {
 
 export declare type OpenApiSchema = OpenAPIV3.SchemaObject & {
   "x-schemaName"?: string
+  "x-featureFlag"?: string
 }
 
 export declare interface OpenApiTagObject extends OpenAPIV3.TagObject {

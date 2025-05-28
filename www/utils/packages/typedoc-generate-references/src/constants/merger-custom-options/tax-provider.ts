@@ -18,6 +18,7 @@ const taxProviderOptions: FormattingOptionsType = {
     shouldIncrementAfterStartSections: true,
     expandMembers: true,
     expandProperties: true,
+    sortMembers: true,
     startSections: [
       `## Overview
 

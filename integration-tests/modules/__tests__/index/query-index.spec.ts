@@ -175,7 +175,18 @@ medusaIntegrationTestRunner({
                     },
                   },
                 ],
-                prices: expect.arrayContaining([]),
+                prices: expect.arrayContaining([
+                  {
+                    currency_code: "CAD",
+                    amount: 20,
+                    id: expect.any(String),
+                  },
+                  {
+                    currency_code: "USD",
+                    amount: 80,
+                    id: expect.any(String),
+                  },
+                ]),
               },
               {
                 sku: "extra-variant-1",

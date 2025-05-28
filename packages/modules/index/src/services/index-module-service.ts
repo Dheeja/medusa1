@@ -40,6 +40,8 @@ export default class IndexModuleService
   extends ModulesSdkUtils.MedusaService({})
   implements IndexTypes.IIndexService
 {
+  #isWorkerMode: boolean = false
+
   private readonly container_: InjectedDependencies
   private readonly moduleOptions_: IndexTypes.IndexModuleOptions
 
@@ -82,6 +84,8 @@ export default class IndexModuleService
     this.container_ = container
     this.moduleOptions_ = (moduleDeclaration.options ??
       moduleDeclaration) as unknown as IndexTypes.IndexModuleOptions
+
+    this.#isWorkerMode = moduleDeclaration.worker_mode !== "server"
 
     const {
       [Modules.EVENT_BUS]: eventBusModuleService,
@@ -126,22 +130,29 @@ export default class IndexModuleService
 
       await gqlSchemaToTypes(executableSchema!)
 
-      this.dataSynchronizer_.onApplicationStart({
-        schemaObjectRepresentation: this.schemaObjectRepresentation_,
-        storageProvider: this.storageProvider_,
-      })
+      /**
+       * Only run the data synchronization in worker mode
+       */
 
-      const configurationChecker = new Configuration({
-        logger: this.logger_,
-        schemaObjectRepresentation: this.schemaObjectRepresentation_,
-        indexMetadataService: this.indexMetadataService_,
-        indexSyncService: this.indexSyncService_,
-        dataSynchronizer: this.dataSynchronizer_,
-      })
-      const entitiesMetadataChanged = await configurationChecker.checkChanges()
+      if (this.#isWorkerMode) {
+        this.dataSynchronizer_.onApplicationStart({
+          schemaObjectRepresentation: this.schemaObjectRepresentation_,
+          storageProvider: this.storageProvider_,
+        })
 
-      if (entitiesMetadataChanged.length) {
-        await this.dataSynchronizer_.syncEntities(entitiesMetadataChanged)
+        const configurationChecker = new Configuration({
+          logger: this.logger_,
+          schemaObjectRepresentation: this.schemaObjectRepresentation_,
+          indexMetadataService: this.indexMetadataService_,
+          indexSyncService: this.indexSyncService_,
+          dataSynchronizer: this.dataSynchronizer_,
+        })
+        const entitiesMetadataChanged =
+          await configurationChecker.checkChanges()
+
+        if (entitiesMetadataChanged.length) {
+          await this.dataSynchronizer_.syncEntities(entitiesMetadataChanged)
+        }
       }
     } catch (e) {
       this.logger_.error(e)

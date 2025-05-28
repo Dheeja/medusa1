@@ -22,6 +22,7 @@ import { formatCurrency } from "../../../../../lib/format-currency"
 import { getLocaleAmount } from "../../../../../lib/money-amount-helpers"
 import { getPaymentsFromOrder } from "../../../order-detail/components/order-payment-section"
 import { formatValue } from "react-currency-input-field"
+import { formatProvider } from "../../../../../lib/format-provider"
 
 type CreateRefundFormProps = {
   order: HttpTypes.AdminOrder
@@ -140,6 +141,7 @@ export const CreateRefundForm = ({
                       disabled={
                         !!payment.canceled_at || totalRefunded >= payment.amount
                       }
+                      className="flex items-center justify-center"
                     >
                       <span>
                         {getLocaleAmount(
@@ -148,8 +150,8 @@ export const CreateRefundForm = ({
                         )}
                         {" - "}
                       </span>
-                      <span>{payment.provider_id}</span>
-                      <span> - ({payment.id.replace("pay_", "")})</span>
+                      <span>{formatProvider(payment.provider_id)}</span>
+                      <span> - (#{payment.id.substring(23)})</span>
                     </Select.Item>
                   )
                 })}

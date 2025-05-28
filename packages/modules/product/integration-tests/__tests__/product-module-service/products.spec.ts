@@ -127,6 +127,10 @@ moduleIntegrationTestRunner<IProductModuleService>({
           productOne = service.createProducts({
             title: "product 1",
             status: ProductStatus.PUBLISHED,
+            weight: 100,
+            length: 200,
+            height: 300,
+            width: 400,
             options: [
               {
                 title: "opt-title",
@@ -236,6 +240,11 @@ moduleIntegrationTestRunner<IProductModuleService>({
           productBefore.images = data.images
           productBefore.thumbnail = data.thumbnail
           productBefore.tag_ids = data.tag_ids
+          // Update the weight/length/height/width to ensure we are compensating the type mismatch with the DB
+          productBefore.weight = 101
+          productBefore.length = 201
+          productBefore.height = 301
+          productBefore.width = 401
           const updatedProducts = await service.upsertProducts([productBefore])
           expect(updatedProducts).toHaveLength(1)
 
@@ -270,6 +279,11 @@ moduleIntegrationTestRunner<IProductModuleService>({
               discountable: productBefore.discountable,
               thumbnail: images[0].url,
               status: productBefore.status,
+              // TODO: Notice how the weight/length/height/width are strings, not respecting the ProductDTO typings
+              weight: "101",
+              length: "201",
+              height: "301",
+              width: "401",
               images: expect.arrayContaining([
                 expect.objectContaining({
                   id: expect.any(String),

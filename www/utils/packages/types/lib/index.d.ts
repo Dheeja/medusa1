@@ -102,6 +102,7 @@ export type FormattingOptionType = {
   hideTocHeaders?: boolean
   workflowDiagramComponent?: string
   isEventsReference?: boolean
+  sortMembers?: boolean
 }
 
 export type AllowedProjectDocumentsOption = {

@@ -20,7 +20,10 @@ Do not install Tanstack Query as that will cause unexpected errors in your devel
 
 First, create the file `src/admin/lib/config.ts` to setup the SDK for use in your customizations:
 
-```ts
+<CodeTabs>
+  <CodeTab label="Medusa Project" value="medusa-project">
+
+```ts title="src/admin/lib/config.ts"
 import Medusa from "@medusajs/js-sdk"
 
 export const sdk = new Medusa({
@@ -32,7 +35,24 @@ export const sdk = new Medusa({
 })
 ```
 
-Notice that you use `import.meta.env` to access environment variables in your customizations, as explained in [this chapter](../environment-variables/page.mdx).
+  </CodeTab>
+  <CodeTab label="Medusa Plugin" value="medusa-plugin">
+
+```ts title="src/admin/lib/config.ts"
+import Medusa from "@medusajs/js-sdk"
+
+export const sdk = new Medusa({
+  baseUrl: __BACKEND_URL__ || "/",
+  auth: {
+    type: "session",
+  },
+})
+```
+
+  </CodeTab>
+</CodeTabs>
+
+Notice that you use `import.meta.env` in a Medusa project to access environment variables in your customizations, whereas in a plugin you use the global variable `__BACKEND_URL__` to access the backend URL. You can learn more in the [Admin Environment Variables](../environment-variables/page.mdx) chapter.
 
 <Note>
 

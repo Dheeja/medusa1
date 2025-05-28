@@ -75,9 +75,9 @@ Start by installing the Medusa application on your machine with the following co
 npx create-medusa-app@latest
 ```
 
-You'll first be asked for the project's name. Then, when you're asked whether you want to install the Next.js storefront, choose `Y` for yes.
+You'll first be asked for the project's name. Then, when you're asked whether you want to install the Next.js Starter Storefront, choose `Y` for yes.
 
-Afterwards, the installation process will start, which will install the Medusa application in a directory with your project's name, and the Next.js storefront in a directory with the `{project-name}-storefront` name.
+Afterwards, the installation process will start, which will install the Medusa application in a directory with your project's name, and the Next.js Starter Storefront in a directory with the `{project-name}-storefront` name.
 
 <Note title="Why is the storefront installed separately?">
 
@@ -87,7 +87,7 @@ The Medusa application is composed of a headless Node.js server and an admin das
 
 Once the installation finishes successfully, the Medusa Admin dashboard will open with a form to create a new user. Enter the user's credential and submit the form. Afterwards, you can login with the new user and explore the dashboard.
 
-The Next.js storefront is also running at `http://localhost:8000`.
+The Next.js Starter Storefront is also running at `http://localhost:8000`.
 
 <Note title="Ran to Errors?">
 
@@ -1331,7 +1331,7 @@ This subscriber now runs whenever an order is placed. You'll see this in action 
 
 ## Test it Out: Place an Order
 
-To test out the Resend integration, you'll place an order using the [Next.js storefront](../../../nextjs-starter/page.mdx) that you installed as part of installing Medusa.
+To test out the Resend integration, you'll place an order using the [Next.js Starter Storefront](../../../nextjs-starter/page.mdx) that you installed as part of installing Medusa.
 
 Start your Medusa application first:
 
@@ -1339,7 +1339,7 @@ Start your Medusa application first:
 npm run dev
 ```
 
-Then, in the Next.js storefront's directory (which was installed in a directory outside of the Medusa application's directory with the name `{project-name}-storefront`, where `{project-name}` is the name of the Medusa application's directory), run the following command to start the storefront:
+Then, in the Next.js Starter Storefront's directory (which was installed in a directory outside of the Medusa application's directory with the name `{project-name}-storefront`, where `{project-name}` is the name of the Medusa application's directory), run the following command to start the storefront:
 
 ```bash npm2yarn
 npm run dev

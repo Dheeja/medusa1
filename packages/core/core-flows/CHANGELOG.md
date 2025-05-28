@@ -1,5 +1,29 @@
 # @medusajs/core-flows
 
+## 2.8.3
+
+### Patch Changes
+
+- [#12527](https://github.com/medusajs/medusa/pull/12527) [`fca5ad77b41856867ec68b1e46d04f1bb71cbc76`](https://github.com/medusajs/medusa/commit/fca5ad77b41856867ec68b1e46d04f1bb71cbc76) Thanks [@thetutlage](https://github.com/thetutlage)! - feat: process import from pre-processed chunks
+
+- [#12567](https://github.com/medusajs/medusa/pull/12567) [`4e49cebcf0f053cb89012276e935a7ec62a12046`](https://github.com/medusajs/medusa/commit/4e49cebcf0f053cb89012276e935a7ec62a12046) Thanks [@shahednasser](https://github.com/shahednasser)! - fix(core-flows, types): export steps and types related to credit lines
+
+- [#12540](https://github.com/medusajs/medusa/pull/12540) [`3071d09a03205597158afe79d55dd43643a97026`](https://github.com/medusajs/medusa/commit/3071d09a03205597158afe79d55dd43643a97026) Thanks [@fPolic](https://github.com/fPolic)! - fix(core-flows): skip location check if variant is not managed when preparing inventory confirm
+
+- Updated dependencies []:
+  - @medusajs/framework@2.8.3
+
+## 2.8.2
+
+### Patch Changes
+
+- [#12503](https://github.com/medusajs/medusa/pull/12503) [`9f4d32b2201d8c87d84c59b9a1ca59e00bcc6af1`](https://github.com/medusajs/medusa/commit/9f4d32b2201d8c87d84c59b9a1ca59e00bcc6af1) Thanks [@fPolic](https://github.com/fPolic)! - fix(core-flows): fulfilment cancelation with shared inventory kit item
+
+- [#12473](https://github.com/medusajs/medusa/pull/12473) [`e149a998862272fff80573a623c4d9010cb0b104`](https://github.com/medusajs/medusa/commit/e149a998862272fff80573a623c4d9010cb0b104) Thanks [@thetutlage](https://github.com/thetutlage)! - feat: define validators and use normalize-products step
+
+- Updated dependencies []:
+  - @medusajs/framework@2.8.2
+
 ## 2.8.1
 
 ### Patch Changes

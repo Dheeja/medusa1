@@ -176,6 +176,10 @@ export const tax = [
     "path": "https://docs.medusajs.com/resources/references/medusa-workflows/updateTaxRegionsWorkflow"
   },
   {
+    "title": "taxProvider",
+    "path": "https://docs.medusajs.com/resources/references/js-sdk/admin/taxProvider"
+  },
+  {
     "title": "taxRate",
     "path": "https://docs.medusajs.com/resources/references/js-sdk/admin/taxRate"
   },

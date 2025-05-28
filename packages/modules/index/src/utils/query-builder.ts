@@ -7,6 +7,7 @@ import {
 } from "@medusajs/framework/utils"
 import { Knex } from "@mikro-orm/knex"
 import { OrderBy, QueryFormat, QueryOptions, Select } from "@types"
+import { getPivotTableName, normalizeTableName } from "./normalze-table-name"
 
 function escapeJsonPathString(val: string): string {
   // Escape for JSONPath string
@@ -23,6 +24,10 @@ function buildSafeJsonPathQuery(
     jsonPathOperator = "=="
   } else if (operator.toUpperCase().includes("LIKE")) {
     jsonPathOperator = "like_regex"
+  } else if (operator === "IS") {
+    jsonPathOperator = "=="
+  } else if (operator === "IS NOT") {
+    jsonPathOperator = "!="
   }
 
   if (typeof value === "string") {
@@ -32,6 +37,10 @@ function buildSafeJsonPathQuery(
       val = val.replace(/%/g, ".*").replace(/_/g, ".")
     }
     value = `"${escapeJsonPathString(val)}"`
+  } else {
+    if ((operator === "IS" || operator === "IS NOT") && value === null) {
+      value = "null"
+    }
   }
 
   return `$.${field} ${jsonPathOperator} ${value}`
@@ -64,6 +73,7 @@ export class QueryBuilder {
   private readonly requestedFields: {
     [key: string]: any
   }
+  private readonly idsOnly?: boolean
 
   constructor(args: {
     schema: IndexTypes.SchemaObjectRepresentation
@@ -75,6 +85,7 @@ export class QueryBuilder {
     requestedFields: {
       [key: string]: any
     }
+    idsOnly?: boolean
   }) {
     this.schema = args.schema
     this.entityMap = args.entityMap
@@ -87,6 +98,7 @@ export class QueryBuilder {
     )
     this.rawConfig = args.rawConfig
     this.requestedFields = args.requestedFields
+    this.idsOnly = args.idsOnly ?? false
   }
 
   private getStructureKeys(structure) {
@@ -530,14 +542,14 @@ export class QueryBuilder {
       aliasMapping[currentAliasPath] = alias
 
       if (level > 0) {
-        const cName = entity.ref.entity.toLowerCase()
+        const cName = normalizeTableName(entity.ref.entity)
 
         let joinTable = `cat_${cName} AS ${alias}`
 
         if (entity.isInverse || parEntity.isInverse) {
           const pName =
             `${entity.ref.entity}${parEntity.ref.entity}`.toLowerCase()
-          const pivotTable = `cat_pivot_${pName}`
+          const pivotTable = getPivotTableName(pName)
 
           joinBuilder.leftJoin(
             `${pivotTable} AS ${alias}_ref`,
@@ -552,7 +564,7 @@ export class QueryBuilder {
         } else {
           const pName =
             `${parEntity.ref.entity}${entity.ref.entity}`.toLowerCase()
-          const pivotTable = `cat_pivot_${pName}`
+          const pivotTable = getPivotTableName(pName)
 
           joinBuilder.leftJoin(
             `${pivotTable} AS ${alias}_ref`,
@@ -634,7 +646,7 @@ export class QueryBuilder {
 
       if (parentProperty === "id") {
         selectParts[currentAliasPath] = `${alias}.id`
-      } else {
+      } else if (!this.idsOnly) {
         selectParts[currentAliasPath] = this.knex.raw(
           `${alias}.data->'${parentProperty}'`
         )
@@ -648,7 +660,10 @@ export class QueryBuilder {
       return selectParts
     }
 
-    selectParts[currentAliasPath] = `${alias}.data`
+    if (!this.idsOnly) {
+      selectParts[currentAliasPath] = `${alias}.data`
+    }
+
     selectParts[currentAliasPath + ".id"] = `${alias}.id`
 
     const children = this.getStructureKeys(structure)
@@ -704,11 +719,9 @@ export class QueryBuilder {
   public buildQuery({
     hasPagination = true,
     hasCount = false,
-    returnIdOnly = false,
   }: {
     hasPagination?: boolean
     hasCount?: boolean
-    returnIdOnly?: boolean
   }): { sql: string; sqlCount?: string } {
     const selectOnlyStructure = this.selector.select
     const structure = this.requestedFields
@@ -816,7 +829,10 @@ export class QueryBuilder {
     }
 
     innerQueryBuilder.from(
-      `cat_${rootEntity} AS ${this.getShortAlias(aliasMapping, rootKey)}`
+      `cat_${normalizeTableName(rootEntity)} AS ${this.getShortAlias(
+        aliasMapping,
+        rootKey
+      )}`
     )
 
     joinParts.forEach((joinPart) => {
@@ -887,7 +903,10 @@ export class QueryBuilder {
     const innerQueryAlias = "paginated_ids"
 
     outerQueryBuilder.from(
-      `cat_${rootEntity} AS ${this.getShortAlias(aliasMapping, rootKey)}`
+      `cat_${normalizeTableName(rootEntity)} AS ${this.getShortAlias(
+        aliasMapping,
+        rootKey
+      )}`
     )
 
     outerQueryBuilder.joinRaw(
@@ -909,13 +928,11 @@ export class QueryBuilder {
       outerQueryBuilder.joinRaw(joinPart)
     })
 
-    const finalSelectParts = !returnIdOnly
-      ? this.buildSelectParts(
-          selectOnlyStructure[rootKey] as Select,
-          rootKey,
-          aliasMapping
-        )
-      : { [`${rootKey}.id`]: `${rootAlias}.id` }
+    const finalSelectParts = this.buildSelectParts(
+      selectOnlyStructure[rootKey] as Select,
+      rootKey,
+      aliasMapping
+    )
 
     outerQueryBuilder.select(finalSelectParts)
 

@@ -71,6 +71,10 @@ export type RemoteQueryInput<TEntry extends string> = {
    * Apply a `withDeleted` flag on the retrieved data to retrieve soft deleted items.
    */
   withDeleted?: boolean
+  /**
+   * Strategy will be send to the entry module called method
+   */
+  strategy?: "joined" | "select-in"
 }
 
 export type RemoteQueryGraph<TEntry extends string> = {

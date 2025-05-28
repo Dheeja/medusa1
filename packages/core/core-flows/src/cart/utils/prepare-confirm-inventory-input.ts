@@ -151,6 +151,7 @@ export const prepareConfirmInventoryInput = (data: {
   if (salesChannelId) {
     for (const variant of allVariants.values()) {
       if (
+        variant.manage_inventory &&
         !variantsWithLocationForChannel.has(variant.id) &&
         !variant.allow_backorder
       ) {

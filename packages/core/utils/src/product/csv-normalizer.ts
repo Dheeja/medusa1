@@ -169,25 +169,17 @@ const productStaticColumns: {
     "product discountable",
     "discountable"
   ),
-  "product height": processAsNumber("product height", "height", {
-    asNumericString: true,
-  }),
+  "product height": processAsNumber("product height", "height"),
   "product hs code": processAsString("product hs code", "hs_code"),
-  "product length": processAsNumber("product length", "length", {
-    asNumericString: true,
-  }),
+  "product length": processAsNumber("product length", "length"),
   "product material": processAsString("product material", "material"),
   "product mid code": processAsString("product mid code", "mid_code"),
   "product origin country": processAsString(
     "product origin country",
     "origin_country"
   ),
-  "product weight": processAsNumber("product weight", "weight", {
-    asNumericString: true,
-  }),
-  "product width": processAsNumber("product width", "width", {
-    asNumericString: true,
-  }),
+  "product weight": processAsNumber("product weight", "weight"),
+  "product width": processAsNumber("product width", "width"),
   "product metadata": processAsString("product metadata", "metadata"),
   "shipping profile id": processAsString(
     "shipping profile id",
@@ -243,12 +235,8 @@ const variantStaticColumns: {
     "allow_backorder"
   ),
   "variant barcode": processAsString("variant barcode", "barcode"),
-  "variant height": processAsNumber("variant height", "height", {
-    asNumericString: true,
-  }),
-  "variant length": processAsNumber("variant length", "length", {
-    asNumericString: true,
-  }),
+  "variant height": processAsNumber("variant height", "height"),
+  "variant length": processAsNumber("variant length", "length"),
   "variant material": processAsString("variant material", "material"),
   "variant metadata": processAsString("variant metadata", "metadata"),
   "variant origin country": processAsString(
@@ -259,12 +247,8 @@ const variantStaticColumns: {
     "variant variant rank",
     "variant_rank"
   ),
-  "variant width": processAsNumber("variant width", "width", {
-    asNumericString: true,
-  }),
-  "variant weight": processAsNumber("variant weight", "weight", {
-    asNumericString: true,
-  }),
+  "variant width": processAsNumber("variant width", "width"),
+  "variant weight": processAsNumber("variant weight", "weight"),
 }
 
 /**
@@ -295,7 +279,7 @@ const variantWildcardColumns: {
       } else {
         output["prices"].push({
           currency_code: iso,
-          amount: String(numericValue),
+          amount: numericValue,
         })
       }
     })
@@ -438,7 +422,7 @@ export class CSVNormalizer {
     }, {})
 
     if (unknownColumns.length) {
-      return new MedusaError(
+      throw new MedusaError(
         MedusaError.Types.INVALID_DATA,
         `Invalid column name(s) "${unknownColumns.join('","')}"`
       )
@@ -509,7 +493,7 @@ export class CSVNormalizer {
       )
       if (!matchingKey) {
         product.options.push({ title: key, values: [value] })
-      } else {
+      } else if (!matchingKey.values.includes(value)) {
         matchingKey.values.push(value)
       }
     })

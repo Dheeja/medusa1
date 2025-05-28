@@ -44,8 +44,33 @@ If your file service doesn’t perform or offer a similar functionality, you can
 
 ### getPresignedUploadUrl
 
-This method is used to get a presigned upload URL for a file.
-If the file provider does not support direct upload, an exception will be thrown when calling this method.
+<BadgesList badges={[
+  {
+    "variant": "neutral",
+    "children": "optional"
+  }
+]} className="mb-1" />
+
+This method is used to get a presigned upload URL for a file. For some providers,
+such as S3, a presigned URL indicates a temporary URL to get upload a file.
+
+If your provider doesn’t perform or offer a similar functionality, you don't have to
+implement this method. Instead, an error is thrown when the method is called.
+
+#### Example
+
+```ts
+class MyFileProviderService extends AbstractFileProviderService {
+  // ...
+  async getPresignedUploadUrl(
+    fileData: ProviderGetPresignedUploadUrlDTO
+  ): Promise<ProviderFileResultDTO> {
+    // TODO logic to get the presigned upload URL
+    // for example:
+    return this.client.getPresignedUploadUrl(fileData.filename, fileData.mimeType)
+  }
+}
+```
 
 #### Parameters
 

@@ -36,6 +36,10 @@ export const howTo = [
     "path": "https://docs.medusajs.com/resources/infrastructure-modules/workflow-engine/how-to-use"
   },
   {
+    "title": "Use Analytics Module",
+    "path": "https://docs.medusajs.com/resources/references/analytics/service"
+  },
+  {
     "title": "Create Auth Provider",
     "path": "https://docs.medusajs.com/resources/references/auth/provider"
   },

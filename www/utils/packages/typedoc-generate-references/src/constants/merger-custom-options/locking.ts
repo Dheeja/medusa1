@@ -19,6 +19,7 @@ const lockingOptions: FormattingOptionsType = {
     shouldIncrementAfterStartSections: true,
     expandMembers: true,
     expandProperties: true,
+    sortMembers: true,
     sections: {
       ...baseSectionsOptions,
       member_declaration_title: false,
@@ -139,6 +140,7 @@ The Locking Module will now use your provider to handle all locking operations.
       fullReplacement: "How to Use Locking Module",
     },
     expandMembers: true,
+    sortMembers: true,
     startSections: [
       `## Resolve Locking Module's Service
 

@@ -25350,7 +25350,16 @@ paths:
         '500':
           $ref: '#/components/responses/500_error'
       x-workflow: markPaymentCollectionAsPaid
-      x-events: []
+      x-events:
+        - name: payment.captured
+          payload: |-
+            ```ts
+            {
+              id, // the ID of the payment
+            }
+            ```
+          description: Emitted when a payment is captured.
+          deprecated: false
   /admin/payments:
     get:
       operationId: GetPayments
@@ -26200,7 +26209,16 @@ paths:
         '500':
           $ref: '#/components/responses/500_error'
       x-workflow: capturePaymentWorkflow
-      x-events: []
+      x-events:
+        - name: payment.captured
+          payload: |-
+            ```ts
+            {
+              id, // the ID of the payment
+            }
+            ```
+          description: Emitted when a payment is captured.
+          deprecated: false
   /admin/payments/{id}/refund:
     post:
       operationId: PostPaymentsIdRefund
@@ -26292,7 +26310,16 @@ paths:
         '500':
           $ref: '#/components/responses/500_error'
       x-workflow: refundPaymentWorkflow
-      x-events: []
+      x-events:
+        - name: payment.refunded
+          payload: |-
+            ```ts
+            {
+              id, // the ID of the payment
+            }
+            ```
+          description: Emitted when a payment is refunded.
+          deprecated: false
   /admin/plugins:
     get:
       operationId: GetPlugins
@@ -49515,10 +49542,10 @@ paths:
             sdk.admin.upload.create(
               {
                 files: [
-                   // file uploaded as a base64 string
+                   // file uploaded as a binary string
                   {
                     name: "test.txt",
-                    content: "test", // Should be the base64 content of the file
+                    content: "test", // Should be the binary string of the file
                   },
                   // file uploaded as a File object
                   new File(["test"], "test.txt", { type: "text/plain" })

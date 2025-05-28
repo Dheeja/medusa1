@@ -8,7 +8,14 @@ import { CreateFileDTO, GetUploadFileUrlDTO } from "./mutations"
 
 export interface IFileModuleService extends IModuleService {
   /**
-   * Returns a reference to the file provider in use
+   * This method returns the service of the configured File Module Provider in `medusa-config.ts`. This is useful
+   * if you want to execute custom methods defined in the provider's service or you need direct access to it.
+   *
+   * @returns {IFileProvider} An instance of the File Module Provider's service.
+   *
+   * @example
+   * const s3ProviderService = fileModuleService.getProvider()
+   * // TODO: perform custom actions with the provider
    */
   getProvider(): IFileProvider
 
@@ -23,7 +30,7 @@ export interface IFileModuleService extends IModuleService {
    * const [file] = await fileModuleService.createFiles([{
    *   filename: "product.png",
    *   mimeType: "image/png",
-   *   content: "somecontent" // base64 encoded
+   *   content: "somecontent" // binary string
    * }])
    */
   createFiles(
@@ -42,7 +49,7 @@ export interface IFileModuleService extends IModuleService {
    * const file = await fileModuleService.createFiles({
    *   filename: "product.png",
    *   mimeType: "image/png",
-   *   content: "somecontent" // base64 encoded
+   *   content: "somecontent" // binary string
    * })
    */
 
@@ -128,17 +135,17 @@ export interface IFileModuleService extends IModuleService {
   ): Promise<FileDTO>
 
   /**
-   * This method is used to retrieve a file by ID, similarly to `retrieve`. It doesn't retrieve multiple files, but it's added to support retrieving files with [Query](https://docs.medusajs.com/learn/fundamentals/module-links/query).
+   * This method is used to list files. It only supports filtering by ID.
    *
    * @param {FilterableFileProps} filters - The filters to apply on the retrieved files.
    * @param {FindConfig<FileDTO>} config -
    * The configurations determining how the files are retrieved. Its properties, such as `select` or `relations`, accept the
    * attributes or relations associated with a file.
    * @param {Context} sharedContext - A context used to share resources, such as transaction manager, between the application and the module.
-   * @returns {Promise<FileDTO[]>} The list of files. In this case, it will have at most one file.
+   * @returns {Promise<FileDTO[]>} The list of files.
    *
    * @example
-   * const files = await fileModuleService.listFiles({ id: "file_123" })
+   * const files = await fileModuleService.listFiles({ id: ["file_123", "file_456"] })
    */
   listFiles(
     filters?: FilterableFileProps,
@@ -147,14 +154,14 @@ export interface IFileModuleService extends IModuleService {
   ): Promise<FileDTO[]>
 
   /**
-   * This method is used to retrieve a file by ID, similarly to `retrieve`. It doesn't retrieve multiple files, but it's added to support retrieving files with [Query](https://docs.medusajs.com/learn/fundamentals/module-links/query).
+   * This method is used to list files and their count. It only supports filtering by ID.
    *
    * @param {FilterableFileProps} filters - The filters to apply on the retrieved files.
    * @param {FindConfig<FileDTO>} config -
    * The configurations determining how the files are retrieved. Its properties, such as `select` or `relations`, accept the
    * attributes or relations associated with a file.
    * @param {Context} sharedContext - A context used to share resources, such as transaction manager, between the application and the module.
-   * @returns {Promise<[FileDTO[], number]>} The list of files and their count. In this case, it will have at most one file.
+   * @returns {Promise<[FileDTO[], number]>} The list of files and their count.
    *
    * @example
    * const [files] = await fileModuleService.listAndCountFiles({ id: "file_123" })
@@ -168,9 +175,9 @@ export interface IFileModuleService extends IModuleService {
   /**
    * This method retrieves a file by its ID and returns a stream to download the file. Under the hood, it will use the
    * file provider that was used to upload the file to retrievethe stream.
-   * 
+   *
    * @version 2.8.0
-   * 
+   *
    * @param {string} id - The ID of the file.
    * @param {Context} sharedContext - A context used to share resources, such as transaction manager, between the application and the module.
    * @returns {Promise<Readable>} A readable stream of the file contents.
@@ -184,9 +191,9 @@ export interface IFileModuleService extends IModuleService {
   /**
    * This method retrieves a file by its ID and returns the file contents as a buffer. Under the hood, it will use the
    * file provider that was used to upload the file to retrieve the buffer.
-   * 
+   *
    * @version 2.8.0
-   * 
+   *
    * @param {string} id - The ID of the file.
    * @param {Context} sharedContext - A context used to share resources, such as transaction manager, between the application and the module.
    * @returns {Promise<Buffer>} A buffer of the file contents.

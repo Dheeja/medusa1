@@ -527,3 +527,30 @@ export interface CartWorkflowDTO {
   id: string
   payment_collection: PaymentCollectionDTO
 }
+
+export type CreateCartCreditLinesWorkflowInput = {
+  /**
+   * The ID of the cart that the credit line belongs to.
+   */
+  cart_id: string
+
+  /**
+   * The amount of the credit line.
+   */
+  amount: number
+
+  /**
+   * The reference model name that the credit line is generated from
+   */
+  reference: string | null
+
+  /**
+   * The reference model id that the credit line is generated from
+   */
+  reference_id: string | null
+
+  /**
+   * The metadata of the cart detail
+   */
+  metadata: Record<string, unknown> | null
+}[]

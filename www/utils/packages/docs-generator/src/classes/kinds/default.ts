@@ -605,10 +605,12 @@ class DefaultKindGenerator<T extends ts.Node = ts.Node> {
   getInformationFromTags(node: ts.Node): {
     deprecatedTag: ts.JSDocTag | undefined
     versionTag: ts.JSDocTag | undefined
+    featureFlagTag: ts.JSDocTag | undefined
   } {
     const nodeComments = ts.getJSDocCommentsAndTags(node)
     let deprecatedTag: ts.JSDocTag | undefined
     let versionTag: ts.JSDocTag | undefined
+    let featureFlagTag: ts.JSDocTag | undefined
 
     nodeComments.forEach((comment) => {
       if (!("tags" in comment)) {
@@ -623,12 +625,17 @@ class DefaultKindGenerator<T extends ts.Node = ts.Node> {
         if (tag.tagName.getText() === "version") {
           versionTag = tag
         }
+
+        if (tag.tagName.getText() === "featureFlag") {
+          featureFlagTag = tag
+        }
       })
     })
 
     return {
       deprecatedTag,
       versionTag,
+      featureFlagTag,
     }
   }
 }

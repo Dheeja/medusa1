@@ -44,6 +44,10 @@ export const order = [
     "path": "https://docs.medusajs.com/resources/how-to-tutorials/tutorials/loyalty-points"
   },
   {
+    "title": "Implement Re-Order",
+    "path": "https://docs.medusajs.com/resources/how-to-tutorials/tutorials/re-order"
+  },
+  {
     "title": "Checkout Step 5: Complete Cart",
     "path": "https://docs.medusajs.com/resources/storefront-development/checkout/complete-cart"
   },
@@ -58,6 +62,10 @@ export const order = [
   {
     "title": "completeCartWorkflow",
     "path": "https://docs.medusajs.com/resources/references/medusa-workflows/completeCartWorkflow"
+  },
+  {
+    "title": "refundPaymentAndRecreatePaymentSessionWorkflow",
+    "path": "https://docs.medusajs.com/resources/references/medusa-workflows/refundPaymentAndRecreatePaymentSessionWorkflow"
   },
   {
     "title": "addDraftOrderItemsWorkflow",
@@ -430,6 +438,10 @@ export const order = [
   {
     "title": "markPaymentCollectionAsPaid",
     "path": "https://docs.medusajs.com/resources/references/medusa-workflows/markPaymentCollectionAsPaid"
+  },
+  {
+    "title": "maybeRefreshShippingMethodsWorkflow",
+    "path": "https://docs.medusajs.com/resources/references/medusa-workflows/maybeRefreshShippingMethodsWorkflow"
   },
   {
     "title": "orderClaimAddNewItemWorkflow",

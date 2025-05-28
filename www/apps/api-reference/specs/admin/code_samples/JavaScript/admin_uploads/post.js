@@ -11,10 +11,10 @@ export const sdk = new Medusa({
 sdk.admin.upload.create(
   {
     files: [
-       // file uploaded as a base64 string
+       // file uploaded as a binary string
       {
         name: "test.txt",
-        content: "test", // Should be the base64 content of the file
+        content: "test", // Should be the binary string of the file
       },
       // file uploaded as a File object
       new File(["test"], "test.txt", { type: "text/plain" })

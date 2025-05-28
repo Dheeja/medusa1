@@ -191,25 +191,21 @@ export const confirmOrderEditRequestWorkflow = createWorkflow(
       throw_if_key_not_found: true,
     }).config({ name: "order-items-query" })
 
-    const lineItemIds = transform(
-      { orderItems, previousOrderItems: order.items },
-
-      (data) => {
-        const previousItemIds = (data.previousOrderItems || []).map(
-          ({ id }) => id
-        ) // items that have been removed with the change
-        const newItemIds = data.orderItems.items.map(({ id }) => id)
-        return [...new Set([...previousItemIds, ...newItemIds])]
-      }
-    )
-
-    deleteReservationsByLineItemsStep(lineItemIds)
-
-    const { variants, items } = transform(
-      { orderItems, orderPreview },
-      ({ orderItems, orderPreview }) => {
+    const { variants, items, toRemoveReservationLineItemIds } = transform(
+      { orderItems, previousOrderItems: order.items, orderPreview },
+      ({ orderItems, previousOrderItems, orderPreview }) => {
         const allItems: any[] = []
         const allVariants: any[] = []
+
+        const previousItemIds = (previousOrderItems || []).map(({ id }) => id)
+        const currentItemIds = orderItems.items.map(({ id }) => id)
+
+        const removedItemIds = previousItemIds.filter(
+          (id) => !currentItemIds.includes(id)
+        )
+
+        const updatedItemIds: string[] = []
+
         orderItems.items.forEach((ordItem) => {
           const itemAction = orderPreview.items?.find(
             (item) =>
@@ -236,16 +232,12 @@ export const confirmOrderEditRequestWorkflow = createWorkflow(
             (a) => a.action === ChangeActionType.ITEM_UPDATE
           )
 
-          const quantity: BigNumberInput =
-            itemAction.raw_quantity ?? itemAction.quantity
-
-          const newQuantity = updateAction
-            ? MathBN.sub(quantity, ordItem.raw_quantity)
-            : quantity
-
-          if (MathBN.lte(newQuantity, 0)) {
-            return
+          if (updateAction) {
+            updatedItemIds.push(ordItem.id)
           }
+
+          const newQuantity: BigNumberInput =
+            itemAction.raw_quantity ?? itemAction.quantity
 
           const reservationQuantity = MathBN.sub(
             newQuantity,
@@ -265,6 +257,10 @@ export const confirmOrderEditRequestWorkflow = createWorkflow(
         return {
           variants: allVariants,
           items: allItems,
+          toRemoveReservationLineItemIds: [
+            ...removedItemIds,
+            ...updatedItemIds,
+          ],
         }
       }
     )
@@ -280,6 +276,7 @@ export const confirmOrderEditRequestWorkflow = createWorkflow(
       prepareConfirmInventoryInput
     )
 
+    deleteReservationsByLineItemsStep(toRemoveReservationLineItemIds)
     reserveInventoryStep(formatedInventoryItems)
 
     createOrUpdateOrderPaymentCollectionWorkflow.runAsStep({

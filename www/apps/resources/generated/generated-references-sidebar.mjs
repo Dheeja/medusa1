@@ -786,8 +786,26 @@ const generatedgeneratedReferencesSidebarSidebar = {
                   "loaded": true,
                   "isPathHref": true,
                   "type": "link",
+                  "path": "/references/medusa-workflows/steps/createEntitiesStep",
+                  "title": "createEntitiesStep",
+                  "description": "",
+                  "children": []
+                },
+                {
+                  "loaded": true,
+                  "isPathHref": true,
+                  "type": "link",
                   "path": "/references/medusa-workflows/steps/createRemoteLinkStep",
                   "title": "createRemoteLinkStep",
+                  "description": "",
+                  "children": []
+                },
+                {
+                  "loaded": true,
+                  "isPathHref": true,
+                  "type": "link",
+                  "path": "/references/medusa-workflows/steps/deleteEntitiesStep",
+                  "title": "deleteEntitiesStep",
                   "description": "",
                   "children": []
                 },
@@ -4745,6 +4763,15 @@ const generatedgeneratedReferencesSidebarSidebar = {
                   "loaded": true,
                   "isPathHref": true,
                   "type": "link",
+                  "path": "/references/medusa-workflows/importProductsAsChunksWorkflow",
+                  "title": "importProductsAsChunksWorkflow",
+                  "description": "Import products from a CSV file.",
+                  "children": []
+                },
+                {
+                  "loaded": true,
+                  "isPathHref": true,
+                  "type": "link",
                   "path": "/references/medusa-workflows/importProductsWorkflow",
                   "title": "importProductsWorkflow",
                   "description": "Import products from a CSV file.",
@@ -4996,8 +5023,17 @@ const generatedgeneratedReferencesSidebarSidebar = {
                   "loaded": true,
                   "isPathHref": true,
                   "type": "link",
-                  "path": "/references/medusa-workflows/steps/groupProductsForBatchStep",
-                  "title": "groupProductsForBatchStep",
+                  "path": "/references/medusa-workflows/steps/normalizeCsvStep",
+                  "title": "normalizeCsvStep",
+                  "description": "",
+                  "children": []
+                },
+                {
+                  "loaded": true,
+                  "isPathHref": true,
+                  "type": "link",
+                  "path": "/references/medusa-workflows/steps/normalizeCsvToChunksStep",
+                  "title": "normalizeCsvToChunksStep",
                   "description": "",
                   "children": []
                 },
@@ -5007,6 +5043,15 @@ const generatedgeneratedReferencesSidebarSidebar = {
                   "type": "link",
                   "path": "/references/medusa-workflows/steps/parseProductCsvStep",
                   "title": "parseProductCsvStep",
+                  "description": "",
+                  "children": []
+                },
+                {
+                  "loaded": true,
+                  "isPathHref": true,
+                  "type": "link",
+                  "path": "/references/medusa-workflows/steps/processImportChunksStep",
+                  "title": "processImportChunksStep",
                   "description": "",
                   "children": []
                 },
@@ -6796,8 +6841,26 @@ const generatedgeneratedReferencesSidebarSidebar = {
               "loaded": true,
               "isPathHref": true,
               "type": "link",
+              "path": "/references/helper-steps/createEntitiesStep",
+              "title": "createEntitiesStep",
+              "description": "",
+              "children": []
+            },
+            {
+              "loaded": true,
+              "isPathHref": true,
+              "type": "link",
               "path": "/references/helper-steps/createRemoteLinkStep",
               "title": "createRemoteLinkStep",
+              "description": "",
+              "children": []
+            },
+            {
+              "loaded": true,
+              "isPathHref": true,
+              "type": "link",
+              "path": "/references/helper-steps/deleteEntitiesStep",
+              "title": "deleteEntitiesStep",
               "description": "",
               "children": []
             },

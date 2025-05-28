@@ -71,6 +71,18 @@ const customOptions: Record<string, Partial<TypeDocOptions>> = {
     tsConfigName: "types.json",
     name: "file-service",
   }),
+  analytics: getOptions({
+    entryPointPath: "packages/core/types/src/analytics/service.ts",
+    tsConfigName: "types.json",
+    name: "analytics",
+    parentIgnore: true,
+  }),
+  "analytics-provider": getOptions({
+    entryPointPath:
+      "packages/core/utils/src/analytics/abstract-analytics-provider.ts",
+    tsConfigName: "utils.json",
+    name: "analytics-provider",
+  }),
   "fulfillment-provider": getOptions({
     entryPointPath: "packages/core/utils/src/fulfillment/provider.ts",
     tsConfigName: "utils.json",
@@ -155,11 +167,6 @@ const customOptions: Record<string, Partial<TypeDocOptions>> = {
     tsConfigName: "utils.json",
     name: "payment-provider",
   }),
-  search: getOptions({
-    entryPointPath: "packages/core/utils/src/search/abstract-service.ts",
-    tsConfigName: "utils.json",
-    name: "search",
-  }),
   "tax-provider": getOptions({
     entryPointPath: "packages/core/types/src/tax/provider.ts",
     tsConfigName: "types.json",
@@ -190,6 +197,7 @@ const customOptions: Record<string, Partial<TypeDocOptions>> = {
     exclude: [
       ...(baseOptions.exclude || []),
       "**/dist/**",
+      "**/analytics/**",
       "**/api-key/**",
       "**/auth/**",
       "**/bundles/**",
@@ -205,7 +213,6 @@ const customOptions: Record<string, Partial<TypeDocOptions>> = {
       "**/orchestration/**",
       "**/pg/**",
       "**/pricing/builders.ts",
-      "**/search/**",
       "**/totals/**",
     ],
   }),

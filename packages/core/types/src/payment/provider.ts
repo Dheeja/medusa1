@@ -339,7 +339,9 @@ export interface GetPaymentStatusOutput extends PaymentProviderOutput {
  */
 export type WebhookActionData = {
   /**
-   * The associated payment session's ID.
+   * The ID of the payment session in Medusa.
+   * Make sure to store this ID in the third-party payment provider
+   * to be able to retrieve the payment session later.
    */
   session_id: string
 
@@ -356,7 +358,7 @@ export type WebhookActionData = {
  */
 export type WebhookActionResult = {
   /**
-   * Normalized events from payment provider to internal payment module events.
+   * The action that was performed so that Medusa can handle it internally.
    */
   action: PaymentActions
 
@@ -392,7 +394,7 @@ export interface IPaymentProvider {
 
   /**
    * This method is used when creating an account holder in Medusa, allowing you to create
-   * the equivalent account in the third-party service. An account holder is useful to
+   * the equivalent account in the third-party payment provider. An account holder is useful to
    * later save payment methods, such as credit cards, for a customer in the
    * third-party payment provider using the {@link savePaymentMethod} method.
    *
@@ -444,7 +446,7 @@ export interface IPaymentProvider {
 
   /**
    * This method is used when updating an account holder in Medusa, allowing you to update
-   * the equivalent account in the third-party service.
+   * the equivalent account in the third-party payment provider.
    *
    * The returned data will be stored in the account holder created in Medusa. For example,
    * the returned `id` property will be stored in the account holder's `external_id` property.
@@ -488,7 +490,7 @@ export interface IPaymentProvider {
 
   /**
    * This method is used when an account holder is deleted in Medusa, allowing you
-   * to also delete the equivalent account holder in the third-party service.
+   * to also delete the equivalent account holder in the third-party payment provider.
    *
    * @param data - Input data including the details of the account holder to delete.
    * @returns The result of deleting the account holder. If an error occurs, throw it.

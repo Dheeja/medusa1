@@ -76,9 +76,9 @@ Start by installing the Medusa application on your machine with the following co
 npx create-medusa-app@latest
 ```
 
-You'll first be asked for the project's name. Then, when you're asked whether you want to install the Next.js storefront, choose `Y` for yes.
+You'll first be asked for the project's name. Then, when you're asked whether you want to install the Next.js Starter Storefront, choose `Y` for yes.
 
-Afterwards, the installation process will start, which will install the Medusa application in a directory with your project's name, and the Next.js storefront in a directory with the `{project-name}-storefront` name.
+Afterwards, the installation process will start, which will install the Medusa application in a directory with your project's name, and the Next.js Starter Storefront in a directory with the `{project-name}-storefront` name.
 
 <Note title="Why is the storefront installed separately?">
 
@@ -88,7 +88,7 @@ The Medusa application is composed of a headless Node.js server and an admin das
 
 Once the installation finishes successfully, the Medusa Admin dashboard will open with a form to create a new user. Enter the user's credential and submit the form.
 
-Afterwards, you can login with the new user and explore the dashboard. The Next.js storefront is also running at `http://localhost:8000`.
+Afterwards, you can login with the new user and explore the dashboard. The Next.js Starter Storefront is also running at `http://localhost:8000`.
 
 <Note title="Ran to Errors?">
 
@@ -979,7 +979,7 @@ In the next step, you'll setup Sanity with Next.js, and you can then monitor the
 
 ## Step 8: Setup Sanity with Next.js Starter Storefront
 
-In this step, you'll install Sanity in the Next.js Starter and configure it. You'll then have a Sanity studio in your Next.js storefront, where you'll later view the product documents being synced from Medusa, and update their content that you'll display in the storefront on the product details page.
+In this step, you'll install Sanity in the Next.js Starter and configure it. You'll then have a Sanity studio in your Next.js Starter Storefront, where you'll later view the product documents being synced from Medusa, and update their content that you'll display in the storefront on the product details page.
 
 Sanity has a CLI tool that helps you with the setup. First, change to the Next.js Starter's directory (it's outside the Medusa application's directory and its name is `{project-name}-storefront`, where `{project-name}` is the name of the Medusa application's directory).
 
@@ -1178,7 +1178,7 @@ You add the product schema to the list of exported schemas, but also disable cre
 
 ### Test it Out
 
-To ensure that your schema is defined correctly and working, start the Next.js storefront's server, and open the Sanity studio again at `http://localhost:8000/studio`.
+To ensure that your schema is defined correctly and working, start the Next.js Starter Storefront's server, and open the Sanity studio again at `http://localhost:8000/studio`.
 
 You'll find "Product Page" under Content. If you click on it, you'll find any product you've synced from Medusa.
 
@@ -1664,7 +1664,7 @@ To render a widget that matches the rest of the admin dashboard's design, you us
 
 <Note>
 
-Learn more about widgets in [this documentation](/learn/fundamentals/admin/widgets).
+Refer to the [Admin Widgets](!docs!/learn/fundamentals/admin/widgets) documentation to learn more.
 
 </Note>
 
@@ -1746,7 +1746,7 @@ export const POST = async (req: MedusaRequest, res: MedusaResponse) => {
 
 This adds a `POST` API route at `/admin/sanity/syncs`. In the route handler, you execute the `sanitySyncProductsWorkflow` without passing it a `product_ids` input. The step in the workflow will retrieve all products, instead of filtering them by ID, and sync them to Sanity.
 
-You return the transaction ID of the workflow, which you can use to track the execution's progress since the workflow will run in the background. This is not implemented in this guide, but Medusa has a [Get Execution API route](!api!admin#workflows-executions_getworkflowsexecutionsworkflow_idtransaction_id) that you can use to get the details of a workflow's execution.
+You return the transaction ID of the workflow, which you can use to track the execution's progress since the workflow will run in the background. This is not implemented in this guide, but Medusa has a [Get Execution API route](!api!/admin#workflows-executions_getworkflowsexecutionsworkflow_idtransaction_id) that you can use to get the details of a workflow's execution.
 
 ### Add Sanity UI Route
 

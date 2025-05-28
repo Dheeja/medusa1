@@ -64,14 +64,6 @@ export const salesChannel = [
     "path": "https://docs.medusajs.com/resources/references/medusa-workflows/orderExchangeAddNewItemWorkflow"
   },
   {
-    "title": "parseProductCsvStep",
-    "path": "https://docs.medusajs.com/resources/references/medusa-workflows/steps/parseProductCsvStep"
-  },
-  {
-    "title": "importProductsWorkflow",
-    "path": "https://docs.medusajs.com/resources/references/medusa-workflows/importProductsWorkflow"
-  },
-  {
     "title": "createDefaultSalesChannelStep",
     "path": "https://docs.medusajs.com/resources/references/medusa-workflows/steps/createDefaultSalesChannelStep"
   },

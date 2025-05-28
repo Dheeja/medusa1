@@ -107,7 +107,7 @@ Start by installing the Medusa application on your machine with the following co
 npx create-medusa-app@latest
 ```
 
-You'll first be asked for the project's name. You can also optionally choose to install the [Next.js starter storefront](../../../nextjs-starter/page.mdx).
+You'll first be asked for the project's name. You can also optionally choose to install the [Next.js Starter Storefront](../../../nextjs-starter/page.mdx).
 
 Afterwards, the installation process will start, which will install the Medusa application in a directory with your project's name. If you chose to install the Next.js starter, it'll be installed in a separate directory with the `{project-name}-storefront` name.
 
@@ -213,7 +213,7 @@ You define the `Quote` data model using the `model.define` method of the DML. It
 
 <Note>
 
-Learn more about defining data model properties in the [Property Types documentation](/learn/fundamentals/data-models/property-types).
+Learn more about defining data model properties in the [Property Types documentation](!docs!/learn/fundamentals/data-models/properties).
 
 </Note>
 
@@ -3450,14 +3450,14 @@ You'll implement the quote acceptance logic in a workflow. The workflow has the 
         type: "workflow",
         name: "confirmOrderEditRequestWorkflow",
         description: "Confirm the changes made on the draft order, such as changes to item quantities and prices.",
-        link: "!resources!/references/medusa-workflows/confirmOrderEditRequestWorkflow",
+        link: "/references/medusa-workflows/confirmOrderEditRequestWorkflow",
         depth: 1
       },
       {
         type: "workflow",
         name: "updateOrderWorkflow",
         description: "Update the draft order to change its status and convert it into an order.",
-        link: "!resources!/references/medusa-workflows/updateOrderWorkflow",
+        link: "/references/medusa-workflows/updateOrderWorkflow",
         depth: 1
       }
     ]

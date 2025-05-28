@@ -32,6 +32,10 @@ const withMDX = mdx({
             "user-guide": {
               projectPath: path.resolve("..", "user-guide"),
             },
+            api: {
+              projectPath: path.resolve("..", "api-reference"),
+              skipSlugValidation: true,
+            },
           },
         },
       ],

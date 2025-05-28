@@ -237,12 +237,7 @@ export class PostgresProvider implements IndexTypes.StorageProvider {
   ): Promise<IndexTypes.QueryResultSet<TEntry>> {
     await this.#isReady_
 
-    const {
-      keepFilteredEntities,
-      fields = [],
-      filters = {},
-      joinFilters = {},
-    } = config
+    const { fields = [], filters = {}, joinFilters = {}, idsOnly } = config
     const { take, skip, order: inputOrderBy = {} } = config.pagination ?? {}
 
     const select = normalizeFieldsSelection(fields)
@@ -281,16 +276,15 @@ export class PostgresProvider implements IndexTypes.StorageProvider {
       options: {
         skip,
         take,
-        keepFilteredEntities,
         orderBy,
       },
       rawConfig: config,
       requestedFields,
+      idsOnly,
     })
 
     const { sql, sqlCount } = qb.buildQuery({
       hasPagination,
-      returnIdOnly: !!keepFilteredEntities,
       hasCount,
     })
 
@@ -309,30 +303,6 @@ export class PostgresProvider implements IndexTypes.StorageProvider {
             take,
           } as IndexTypes.QueryFunctionReturnPagination)
         : undefined
-
-    if (keepFilteredEntities) {
-      const mainEntity = Object.keys(select)[0]
-
-      const ids = resultSet.map((r) => r[`${mainEntity}.id`])
-      if (ids.length) {
-        const result = await this.query<TEntry>(
-          {
-            fields,
-            joinFilters,
-            filters: {
-              [mainEntity]: {
-                id: ids,
-              },
-            },
-            pagination: undefined,
-            keepFilteredEntities: false,
-          } as IndexTypes.IndexQueryConfig<TEntry>,
-          sharedContext
-        )
-        result.metadata ??= resultMetadata
-        return result
-      }
-    }
 
     return {
       data: qb.buildObjectFromResultset(

@@ -27,7 +27,7 @@ export type UploadFilesWorkflowInput = {
     mimeType: string
     /**
      * The content of the file. For images, for example, 
-     * use base64 encoding. For CSV files, use the CSV content.
+     * use binary string. For CSV files, use the CSV content.
      */
     content: string
     /**
@@ -58,7 +58,7 @@ export const uploadFilesWorkflowId = "upload-files"
  *       {
  *         filename: "test.jpg",
  *         mimeType: "img/jpg",
- *         content: "base64Content",
+ *         content: "binary-string",
  *         access: "public"
  *       }
  *     ]

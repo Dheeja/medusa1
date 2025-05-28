@@ -16,6 +16,7 @@ const cacheOptions: FormattingOptionsType = {
       fullReplacement: "How to Use Cache Module",
     },
     expandMembers: true,
+    sortMembers: true,
     startSections: [
       `## Resolve Cache Module's Service
 

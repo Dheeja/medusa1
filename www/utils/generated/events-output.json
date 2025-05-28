@@ -676,5 +676,29 @@
       "markOrderFulfillmentAsDeliveredWorkflow"
     ],
     "deprecated": false
+  },
+  {
+    "name": "payment.captured",
+    "parentName": "PaymentEvents",
+    "propertyName": "CAPTURED",
+    "payload": "```ts\n{\n  id, // the ID of the payment\n}\n```",
+    "description": "Emitted when a payment is captured.",
+    "workflows": [
+      "capturePaymentWorkflow",
+      "processPaymentWorkflow",
+      "markPaymentCollectionAsPaid"
+    ],
+    "deprecated": false
+  },
+  {
+    "name": "payment.refunded",
+    "parentName": "PaymentEvents",
+    "propertyName": "REFUNDED",
+    "payload": "```ts\n{\n  id, // the ID of the payment\n}\n```",
+    "description": "Emitted when a payment is refunded.",
+    "workflows": [
+      "refundPaymentWorkflow"
+    ],
+    "deprecated": false
   }
 ]

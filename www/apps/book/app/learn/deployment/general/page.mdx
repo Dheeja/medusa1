@@ -203,7 +203,7 @@ AUTH_CORS= # STOREFRONT AND ADMIN URLS, SEPARATED BY COMMAS
 DISABLE_MEDUSA_ADMIN=false
 MEDUSA_WORKER_MODE=server
 PORT=9000
-DATABASE_URL # POSTGRES DATABASE URL
+DATABASE_URL= # POSTGRES DATABASE URL
 REDIS_URL= # REDIS DATABASE URL
 ```
 
@@ -285,7 +285,7 @@ JWT_SECRET=supersecret  # TODO GENERATE SECURE SECRET
 DISABLE_MEDUSA_ADMIN=true
 MEDUSA_WORKER_MODE=worker
 PORT=9000
-DATABASE_URL # POSTGRES DATABASE URL
+DATABASE_URL= # POSTGRES DATABASE URL
 REDIS_URL= # REDIS DATABASE URL
 ```
 
@@ -305,7 +305,7 @@ The Medusa application's production build, which is created using the `build` co
 If your hosting provider doesn't support setting a current-working directory, set the start command to the following:
 
 ```bash npm2yarn
-cd .medusa/server && npm run install && npm run start
+cd .medusa/server && npm install && npm run start
 ```
 
 ---

@@ -45,6 +45,7 @@ type InternalParseExpandsParams = {
   implodeMapping: InternalImplodeMapping[]
   options?: RemoteJoinerOptions
   initialData?: any[]
+  initialDataOnly?: boolean
 }
 
 export class RemoteJoiner {
@@ -922,6 +923,7 @@ export class RemoteJoiner {
       implodeMapping,
       options,
       initialData,
+      initialDataOnly,
     } = params
 
     const { parsedExpands, aliasRealPathMap } = this.parseProperties({
@@ -932,7 +934,7 @@ export class RemoteJoiner {
       implodeMapping,
     })
 
-    if (initialData?.length) {
+    if (initialData?.length && initialDataOnly) {
       this.createFilterFromInitialData({
         initialData: options?.initialData as any,
         parsedExpands,
@@ -1524,6 +1526,7 @@ export class RemoteJoiner {
       implodeMapping,
       options,
       initialData: iniDataArray,
+      initialDataOnly: options?.initialDataOnly,
     }
 
     const parsedExpands = this.parseExpands(parseExpandsConfig)

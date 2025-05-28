@@ -20,6 +20,10 @@ export const eventBus = [
     "path": "https://docs.medusajs.com/resources/references/medusa-workflows/createCartWorkflow"
   },
   {
+    "title": "transferCartCustomerWorkflow",
+    "path": "https://docs.medusajs.com/resources/references/medusa-workflows/transferCartCustomerWorkflow"
+  },
+  {
     "title": "updateCartWorkflow",
     "path": "https://docs.medusajs.com/resources/references/medusa-workflows/updateCartWorkflow"
   },

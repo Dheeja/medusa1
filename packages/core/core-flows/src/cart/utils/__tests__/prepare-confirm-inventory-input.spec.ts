@@ -92,25 +92,7 @@ describe("prepareConfirmInventoryInput", () => {
         {
           id: "pv_2",
           manage_inventory: false,
-          inventory_items: [
-            {
-              inventory_item_id: "ii_2",
-              variant_id: "pv_2",
-              required_quantity: 1,
-              inventory: [
-                {
-                  location_levels: {
-                    stock_locations: [
-                      {
-                        id: "sl_1",
-                        sales_channels: [{ id: "sc_1" }],
-                      },
-                    ],
-                  },
-                },
-              ],
-            },
-          ],
+          inventory_items: [], // not managed variant doesn't have inventory
         },
       ],
       items: [

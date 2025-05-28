@@ -80,6 +80,10 @@ export const workflow = [
     "path": "https://docs.medusajs.com/resources/references/medusa-workflows/refreshPaymentCollectionForCartWorkflow"
   },
   {
+    "title": "refundPaymentAndRecreatePaymentSessionWorkflow",
+    "path": "https://docs.medusajs.com/resources/references/medusa-workflows/refundPaymentAndRecreatePaymentSessionWorkflow"
+  },
+  {
     "title": "transferCartCustomerWorkflow",
     "path": "https://docs.medusajs.com/resources/references/medusa-workflows/transferCartCustomerWorkflow"
   },
@@ -548,6 +552,10 @@ export const workflow = [
     "path": "https://docs.medusajs.com/resources/references/medusa-workflows/dismissItemReturnRequestWorkflow"
   },
   {
+    "title": "fetchShippingOptionForOrderWorkflow",
+    "path": "https://docs.medusajs.com/resources/references/medusa-workflows/fetchShippingOptionForOrderWorkflow"
+  },
+  {
     "title": "getOrderDetailWorkflow",
     "path": "https://docs.medusajs.com/resources/references/medusa-workflows/getOrderDetailWorkflow"
   },
@@ -562,6 +570,10 @@ export const workflow = [
   {
     "title": "markPaymentCollectionAsPaid",
     "path": "https://docs.medusajs.com/resources/references/medusa-workflows/markPaymentCollectionAsPaid"
+  },
+  {
+    "title": "maybeRefreshShippingMethodsWorkflow",
+    "path": "https://docs.medusajs.com/resources/references/medusa-workflows/maybeRefreshShippingMethodsWorkflow"
   },
   {
     "title": "orderClaimAddNewItemWorkflow",
@@ -858,6 +870,10 @@ export const workflow = [
   {
     "title": "exportProductsWorkflow",
     "path": "https://docs.medusajs.com/resources/references/medusa-workflows/exportProductsWorkflow"
+  },
+  {
+    "title": "importProductsAsChunksWorkflow",
+    "path": "https://docs.medusajs.com/resources/references/medusa-workflows/importProductsAsChunksWorkflow"
   },
   {
     "title": "importProductsWorkflow",

@@ -1,4 +1,5 @@
 import { Node } from "unist-builder"
+import { SlugChange } from "./build-scripts.js"
 
 export interface UnistNode extends Node {
   type: string
@@ -128,11 +129,21 @@ export declare type CrossProjectLinksOptions = {
 }
 
 export declare type BrokenLinkCheckerOptions = {
+  rootBasePath?: {
+    default: string
+    overrides?: {
+      [k: string]: string
+    }
+  }
+  hasGeneratedSlugs?: boolean
+  generatedSlugs?: SlugChange[]
   crossProjects: {
     [k: string]: {
       projectPath: string
       contentPath?: string
       hasGeneratedSlugs?: boolean
+      generatedSlugs?: SlugChange[]
+      skipSlugValidation?: boolean
     }
   }
 }

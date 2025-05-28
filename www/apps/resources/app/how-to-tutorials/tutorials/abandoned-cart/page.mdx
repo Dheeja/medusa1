@@ -90,7 +90,7 @@ Start by installing the Medusa application on your machine with the following co
 npx create-medusa-app@latest
 ```
 
-You will first be asked for the project's name. Then, when asked whether you want to install the [Next.js starter storefront](../../../nextjs-starter/page.mdx), choose "Yes."
+You will first be asked for the project's name. Then, when asked whether you want to install the [Next.js Starter Storefront](../../../nextjs-starter/page.mdx), choose "Yes."
 
 Afterwards, the installation process will start, which will install the Medusa application in a directory with your project's name and the Next.js Starter Storefront in a separate directory with the `{project-name}-storefront` name.
 
@@ -681,7 +681,7 @@ export async function GET(req: NextRequest, { params }: { params: Params }) {
 
 You add a `GET` route handler that receives the cart ID as a path parameter. In the route handler, you:
 
-- Try to retrieve the cart from the Medusa application. The `retrieveCart` function is already available in the Next.js storefront. If the cart is not found, you return a 404 response.
+- Try to retrieve the cart from the Medusa application. The `retrieveCart` function is already available in the Next.js Starter Storefront. If the cart is not found, you return a 404 response.
 - Set the cart ID in a cookie using the `setCartId` function. This is also a function that is already available in the storefront.
 - Redirect the customer to the cart page. You set the country code in the URL based on the cart's shipping address or region.
 

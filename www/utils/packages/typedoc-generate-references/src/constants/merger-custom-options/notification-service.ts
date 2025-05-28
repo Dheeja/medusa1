@@ -16,6 +16,7 @@ const notificationServiceOptions: FormattingOptionsType = {
       fullReplacement: "How to Use Notification Module",
     },
     expandMembers: true,
+    sortMembers: true,
     startSections: [
       `## Resolve Notification Module's Service
 

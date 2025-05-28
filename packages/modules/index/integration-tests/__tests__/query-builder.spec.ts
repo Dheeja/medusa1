@@ -284,6 +284,34 @@ describe("IndexModuleService query", function () {
 
   afterEach(afterEach_)
 
+  it("should query all products where sku not null", async () => {
+    const { data } = await module.query({
+      fields: ["product.*", "product.variants.*", "product.variants.prices.*"],
+      filters: {
+        product: {
+          variants: {
+            sku: { $ne: null },
+          },
+        },
+      },
+    })
+
+    expect(data.length).toEqual(1)
+
+    const { data: data2 } = await module.query({
+      fields: ["product.*", "product.variants.*", "product.variants.prices.*"],
+      filters: {
+        product: {
+          variants: {
+            sku: { $eq: null },
+          },
+        },
+      },
+    })
+
+    expect(data2.length).toEqual(0)
+  })
+
   it("should query all products ordered by sku DESC", async () => {
     const { data } = await module.query({
       fields: ["product.*", "product.variants.*", "product.variants.prices.*"],
@@ -508,6 +536,42 @@ describe("IndexModuleService query", function () {
     ])
   })
 
+  it("should query all products ordered by price returning only ids", async () => {
+    const { data } = await module.query({
+      fields: ["product.*", "product.variants.*"],
+      idsOnly: true,
+      pagination: {
+        order: {
+          product: {
+            variants: {
+              prices: {
+                amount: "DESC",
+              },
+            },
+          },
+        },
+      },
+    })
+
+    expect(data).toEqual([
+      {
+        id: "prod_2",
+        variants: [],
+      },
+      {
+        id: "prod_1",
+        variants: [
+          {
+            id: "var_1",
+          },
+          {
+            id: "var_2",
+          },
+        ],
+      },
+    ])
+  })
+
   it("should query products filtering by variant sku", async () => {
     const { data, metadata } = await module.query({
       fields: ["product.*", "product.variants.*", "product.variants.prices.*"],
@@ -704,60 +768,6 @@ describe("IndexModuleService query", function () {
           {
             id: "var_2",
             sku: "sku 123",
-          },
-        ],
-      },
-    ])
-  })
-
-  it("should query products filtering by price and returning the complete entity", async () => {
-    const { data, metadata } = await module.query({
-      fields: ["product.*", "product.variants.*", "product.variants.prices.*"],
-      filters: {
-        product: {
-          variants: {
-            prices: {
-              amount: { $gt: 50 },
-            },
-          },
-        },
-      },
-      keepFilteredEntities: true,
-      pagination: {
-        take: 100,
-        skip: 0,
-      },
-    })
-
-    expect(metadata).toEqual({
-      estimate_count: expect.any(Number),
-      skip: 0,
-      take: 100,
-    })
-
-    expect(data).toEqual([
-      {
-        id: "prod_1",
-        variants: [
-          {
-            id: "var_1",
-            sku: "aaa test aaa",
-            prices: [
-              {
-                id: "money_amount_1",
-                amount: 100,
-              },
-            ],
-          },
-          {
-            id: "var_2",
-            sku: "sku 123",
-            prices: [
-              {
-                id: "money_amount_2",
-                amount: 10,
-              },
-            ],
           },
         ],
       },

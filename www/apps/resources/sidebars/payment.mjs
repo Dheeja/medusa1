@@ -44,6 +44,11 @@ export const paymentSidebar = [
           },
           {
             type: "link",
+            path: "/commerce-modules/payment/payment-checkout-flow",
+            title: "Payment in Checkout",
+          },
+          {
+            type: "link",
             path: "/commerce-modules/payment/account-holder",
             title: "Account Holder",
           },

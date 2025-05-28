@@ -6,11 +6,7 @@ import {
   transform,
 } from "@medusajs/framework/workflows-sdk"
 import { notifyOnFailureStep, sendNotificationsStep } from "../../notification"
-import {
-  groupProductsForBatchStep,
-  parseProductCsvStep,
-  waitConfirmationProductImportStep,
-} from "../steps"
+import { normalizeCsvStep, waitConfirmationProductImportStep } from "../steps"
 import { batchProductsWorkflow } from "./batch-products"
 
 export const importProductsWorkflowId = "import-products"
@@ -94,8 +90,7 @@ export const importProductsWorkflow = createWorkflow(
   (
     input: WorkflowData<WorkflowTypes.ProductWorkflow.ImportProductsDTO>
   ): WorkflowResponse<WorkflowTypes.ProductWorkflow.ImportProductsSummary> => {
-    const products = parseProductCsvStep(input.fileContent)
-    const batchRequest = groupProductsForBatchStep(products)
+    const batchRequest = normalizeCsvStep(input.fileContent)
 
     const summary = transform({ batchRequest }, (data) => {
       return {

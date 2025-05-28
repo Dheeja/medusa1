@@ -83,6 +83,8 @@ import stepExamplesHelper from "./resources/helpers/step-examples.js"
 import ifEventsReferenceHelper from "./resources/helpers/if-events-reference.js"
 import eventsListingHelper from "./resources/helpers/events-listing.js"
 import workflowEventsHelper from "./resources/helpers/workflow-events.js"
+import getAllChildrenHelper from "./resources/helpers/get-all-children.js"
+import reflectionBadgesHelper from "./resources/helpers/reflection-badges.js"
 import { MarkdownTheme } from "./theme.js"
 import { getDirname } from "utils"
 
@@ -197,4 +199,6 @@ export function registerHelpers(theme: MarkdownTheme) {
   ifEventsReferenceHelper(theme)
   eventsListingHelper()
   workflowEventsHelper()
+  getAllChildrenHelper(theme)
+  reflectionBadgesHelper()
 }
