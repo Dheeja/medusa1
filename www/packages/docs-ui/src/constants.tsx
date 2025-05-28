@@ -1,4 +1,3 @@
-import { OptionType } from "@/hooks"
 import { NavigationItem } from "types"
 
 export const GITHUB_ISSUES_LINK =
@@ -354,33 +353,5 @@ export const navDropdownItems: NavigationItem[] = [
     type: "link",
     title: "User Guide",
     link: "/user-guide",
-  },
-]
-
-export const searchFilters: OptionType[] = [
-  {
-    value: "concepts-guides",
-    label: "Concepts & Guides",
-    hitsPerPage: 8,
-  },
-  {
-    value: "references",
-    label: "References",
-  },
-  {
-    value: "admin-v2",
-    label: "Admin API",
-  },
-  {
-    value: "store-v2",
-    label: "Store API",
-  },
-  {
-    value: "user-guide",
-    label: "User Guide",
-  },
-  {
-    value: "troubleshooting",
-    label: "Troubleshooting",
   },
 ]

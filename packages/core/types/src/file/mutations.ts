@@ -18,7 +18,7 @@ export interface CreateFileDTO {
   mimeType: string
 
   /**
-   * The file content as a binary-encoded string (For example, base64).
+   * The file content as a binary-encoded string.
    */
   content: string
 

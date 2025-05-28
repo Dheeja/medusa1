@@ -115,6 +115,13 @@ While tutorials show you a specific use case, they also help you understand how 
       },
       {
         type: "link",
+        title: "Phone Authentication",
+        path: "/how-to-tutorials/tutorials/phone-auth",
+        description:
+          "Learn how to allow users to authenticate using their phone numbers.",
+      },
+      {
+        type: "link",
         title: "Product Reviews",
         path: "/how-to-tutorials/tutorials/product-reviews",
         description:

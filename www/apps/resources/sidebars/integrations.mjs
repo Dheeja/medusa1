@@ -105,6 +105,11 @@ export const integrationsSidebar = [
         path: "/infrastructure-modules/notification/sendgrid",
         title: "SendGrid",
       },
+      {
+        type: "ref",
+        path: "/how-to-tutorials/tutorials/phone-auth#step-3-integrate-twilio-sms",
+        title: "Twilio SMS",
+      },
     ],
   },
   {

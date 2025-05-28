@@ -1,3 +1,5 @@
+import { Prerequisites } from "docs-ui"
+
 export const metadata = {
   title: `Docs Contribution Guidelines`,
 }
@@ -25,7 +27,7 @@ You can contribute to the Medusa documentation in the following ways:
 
 ## Documentation Workspace
 
-Medusa's documentation projects are all part of the documentation yarn workspace, which you can find in the [medusa repository](https://github.com/medusajs/medusa) under the `www` directory.
+Medusa's documentation projects are all part of the documentation `yarn` workspace, which you can find in the [medusa repository](https://github.com/medusajs/medusa) under the `www` directory.
 
 The workspace has the following two directories:
 
@@ -37,6 +39,35 @@ The workspace has the following two directories:
 - `packages`: this directory holds the shared packages and components necessary for the development of the projects in the `apps` directory.
   - `docs-ui` includes the shared React components between the different apps.
   - `remark-rehype-plugins` includes Remark and Rehype plugins used by the documentation projects.
+
+### Setup the Documentation Workspace
+
+<Prerequisites
+  items={[
+    {
+      text: "Node.js v20+",
+      link: "https://nodejs.org/en/download"
+    },
+    {
+      text: "Yarn v3+",
+      link: "https://v3.yarnpkg.com/getting-started/install"
+    }
+  ]}
+/>
+
+In the `www` directory, run the following command to install the dependencies:
+
+```bash
+yarn install
+```
+
+Then, run the following command to build packages under the `www/packages` directory:
+
+```bash
+yarn build
+```
+
+After that, you can change into the directory of any documentation project under the `www/apps` directory and run the `dev` command to start the development server.
 
 ---
 

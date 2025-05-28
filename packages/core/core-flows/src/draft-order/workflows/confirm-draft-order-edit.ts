@@ -36,10 +36,10 @@ export interface ConfirmDraftOrderEditWorkflowInput {
 /**
  * This workflow confirms a draft order edit. It's used by the
  * [Confirm Draft Order Edit Admin API Route](https://docs.medusajs.com/api/admin#draft-orders_postdraftordersideditconfirm).
- * 
+ *
  * You can use this workflow within your customizations or your own custom workflows, allowing you to wrap custom logic around
  * confirming a draft order edit.
- * 
+ *
  * @example
  * const { result } = await confirmDraftOrderEditWorkflow(container)
  * .run({
@@ -48,9 +48,9 @@ export interface ConfirmDraftOrderEditWorkflowInput {
  *     confirmed_by: "user_123",
  *   }
  * })
- * 
+ *
  * @summary
- * 
+ *
  * Confirm a draft order edit.
  */
 export const confirmDraftOrderEditWorkflow = createWorkflow(
@@ -134,31 +134,21 @@ export const confirmDraftOrderEditWorkflow = createWorkflow(
       throw_if_key_not_found: true,
     }).config({ name: "order-items-query" })
 
-    const { removedLineItemIds } = transform(
-      { orderItems, previousOrderItems: order.items },
-      (data) => {
-        const previousItemIds = (data.previousOrderItems || []).map(
-          ({ id }) => id
-        )
-        const currentItemIds = data.orderItems.items.map(({ id }) => id)
+    const { variants, items, toRemoveReservationLineItemIds } = transform(
+      { orderItems, previousOrderItems: order.items, orderPreview },
+      ({ orderItems, previousOrderItems, orderPreview }) => {
+        const allItems: any[] = []
+        const allVariants: any[] = []
+
+        const previousItemIds = (previousOrderItems || []).map(({ id }) => id)
+        const currentItemIds = orderItems.items.map(({ id }) => id)
 
         const removedItemIds = previousItemIds.filter(
           (id) => !currentItemIds.includes(id)
         )
 
-        return {
-          removedLineItemIds: removedItemIds,
-        }
-      }
-    )
+        const updatedItemIds: string[] = []
 
-    deleteReservationsByLineItemsStep(removedLineItemIds)
-
-    const { variants, items } = transform(
-      { orderItems, orderPreview },
-      ({ orderItems, orderPreview }) => {
-        const allItems: any[] = []
-        const allVariants: any[] = []
         orderItems.items.forEach((ordItem) => {
           const itemAction = orderPreview.items?.find(
             (item) =>
@@ -185,16 +175,12 @@ export const confirmDraftOrderEditWorkflow = createWorkflow(
             (a) => a.action === ChangeActionType.ITEM_UPDATE
           )
 
-          const quantity: BigNumberInput =
-            itemAction.raw_quantity ?? itemAction.quantity
-
-          const newQuantity = updateAction
-            ? MathBN.sub(quantity, ordItem.raw_quantity)
-            : quantity
-
-          if (MathBN.lte(newQuantity, 0)) {
-            return
+          if (updateAction) {
+            updatedItemIds.push(ordItem.id)
           }
+
+          const newQuantity: BigNumberInput =
+            itemAction.raw_quantity ?? itemAction.quantity
 
           const reservationQuantity = MathBN.sub(
             newQuantity,
@@ -214,6 +200,10 @@ export const confirmDraftOrderEditWorkflow = createWorkflow(
         return {
           variants: allVariants,
           items: allItems,
+          toRemoveReservationLineItemIds: [
+            ...removedItemIds,
+            ...updatedItemIds,
+          ],
         }
       }
     )
@@ -229,6 +219,7 @@ export const confirmDraftOrderEditWorkflow = createWorkflow(
       prepareConfirmInventoryInput
     )
 
+    deleteReservationsByLineItemsStep(toRemoveReservationLineItemIds)
     reserveInventoryStep(formatedInventoryItems)
 
     createOrUpdateOrderPaymentCollectionWorkflow.runAsStep({

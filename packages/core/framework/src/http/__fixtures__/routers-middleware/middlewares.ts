@@ -45,6 +45,14 @@ const middlewares = defineMiddlewares([
     middlewares: [customersGlobalMiddleware],
   },
   {
+    method: ["ALL"],
+    matcher: "/v1*",
+    bodyParser: {
+      sizeLimit: "500kb",
+    },
+    middlewares: [],
+  },
+  {
     method: "POST",
     matcher: "/customers",
     additionalDataValidator: {

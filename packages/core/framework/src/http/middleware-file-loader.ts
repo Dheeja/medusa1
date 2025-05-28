@@ -86,7 +86,10 @@ export class MiddlewareFileLoader {
         const matcher = String(route.matcher)
 
         if (route.bodyParser !== undefined) {
-          const methods = route.methods || [...HTTP_METHODS]
+          let methods = route.methods || [...HTTP_METHODS]
+          if (methods.includes("ALL")) {
+            methods = [...HTTP_METHODS]
+          }
 
           logger.debug(
             `using custom bodyparser config on matcher ${methods}:${route.matcher}`
@@ -100,7 +103,10 @@ export class MiddlewareFileLoader {
         }
 
         if (route.additionalDataValidator !== undefined) {
-          const methods = route.methods || [...HTTP_METHODS]
+          let methods = route.methods || [...HTTP_METHODS]
+          if (methods.includes("ALL")) {
+            methods = [...HTTP_METHODS]
+          }
 
           logger.debug(
             `assigning additionalData validator on matcher ${methods}:${route.matcher}`

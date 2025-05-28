@@ -1,5 +1,6 @@
 import {
   DeleteObjectCommand,
+  DeleteObjectsCommand,
   GetObjectCommand,
   ObjectCannedACL,
   PutObjectCommand,
@@ -152,14 +153,33 @@ export class S3FileService extends AbstractFileProviderService {
     }
   }
 
-  async delete(file: FileTypes.ProviderDeleteFileDTO): Promise<void> {
-    const command = new DeleteObjectCommand({
-      Bucket: this.config_.bucket,
-      Key: file.fileKey,
-    })
-
+  async delete(
+    files: FileTypes.ProviderDeleteFileDTO | FileTypes.ProviderDeleteFileDTO[]
+  ): Promise<void> {
     try {
-      await this.client_.send(command)
+      /**
+       * Bulk delete files
+       */
+      if (Array.isArray(files)) {
+        await this.client_.send(
+          new DeleteObjectsCommand({
+            Bucket: this.config_.bucket,
+            Delete: {
+              Objects: files.map((file) => ({
+                Key: file.fileKey,
+              })),
+              Quiet: true,
+            },
+          })
+        )
+      } else {
+        await this.client_.send(
+          new DeleteObjectCommand({
+            Bucket: this.config_.bucket,
+            Key: files.fileKey,
+          })
+        )
+      }
     } catch (e) {
       // TODO: Rethrow depending on the error (eg. a file not found error is fine, but a failed request should be rethrown)
       this.logger_.error(e)

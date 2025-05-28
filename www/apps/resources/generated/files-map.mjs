@@ -744,6 +744,10 @@ export const filesMap = [
     "pathname": "/how-to-tutorials/tutorials/loyalty-points"
   },
   {
+    "filePath": "/www/apps/resources/app/how-to-tutorials/tutorials/phone-auth/page.mdx",
+    "pathname": "/how-to-tutorials/tutorials/phone-auth"
+  },
+  {
     "filePath": "/www/apps/resources/app/how-to-tutorials/tutorials/product-reviews/page.mdx",
     "pathname": "/how-to-tutorials/tutorials/product-reviews"
   },

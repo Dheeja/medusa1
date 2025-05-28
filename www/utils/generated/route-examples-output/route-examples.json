@@ -879,7 +879,7 @@
     "js-sdk": "sdk.admin.taxRegion.list()\n.then(({ tax_regions, count, limit, offset }) => {\n  console.log(tax_regions)\n})"
   },
   "POST /admin/uploads": {
-    "js-sdk": "sdk.admin.upload.create(\n  {\n    files: [\n       // file uploaded as a base64 string\n      {\n        name: \"test.txt\",\n        content: \"test\", // Should be the base64 content of the file\n      },\n      // file uploaded as a File object\n      new File([\"test\"], \"test.txt\", { type: \"text/plain\" })\n    ],\n  }\n)\n.then(({ files }) => {\n  console.log(files)\n})"
+    "js-sdk": "sdk.admin.upload.create(\n  {\n    files: [\n       // file uploaded as a binary string\n      {\n        name: \"test.txt\",\n        content: \"test\", // Should be the binary string of the file\n      },\n      // file uploaded as a File object\n      new File([\"test\"], \"test.txt\", { type: \"text/plain\" })\n    ],\n  }\n)\n.then(({ files }) => {\n  console.log(files)\n})"
   },
   "GET /admin/uploads/{id}": {
     "js-sdk": "sdk.admin.upload.retrieve(\"test.txt\")\n.then(({ file }) => {\n  console.log(file)\n})"
