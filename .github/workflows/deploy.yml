@@ -1,0 +1,31 @@
+name: Deploy to ECS Fargate
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Login to Amazon ECR
+      uses: aws-actions/amazon-ecr-login@v1
+
+    - name: Build, tag, and push image
+      run: |
+        docker build -t medusa-app .
+        docker tag medusa-app:latest <your_aws_account_id>.dkr.ecr.us-east-1.amazonaws.com/medusa-app:latest
+        docker push <your_aws_account_id>.dkr.ecr.us-east-1.amazonaws.com/medusa-app:latest
+
+    - name: Terraform apply
+      run: |
+        cd ../medusa-ecs-terraform
+        terraform init
+        terraform apply -auto-approve
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
