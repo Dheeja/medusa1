@@ -1,5 +1,58 @@
 # Change Log
 
+## 2.8.4
+
+### Patch Changes
+
+- Updated dependencies [[`7685d66c0775167994150e61a8b628ad6289ce23`](https://github.com/medusajs/medusa/commit/7685d66c0775167994150e61a8b628ad6289ce23), [`791276e80f5745c8885352b7979c0faa979110f4`](https://github.com/medusajs/medusa/commit/791276e80f5745c8885352b7979c0faa979110f4), [`c4dd29046183bfe3c99b7ec00414449e53478d22`](https://github.com/medusajs/medusa/commit/c4dd29046183bfe3c99b7ec00414449e53478d22), [`cf0297f74af1b043363ffbd5a23ca0933097a69d`](https://github.com/medusajs/medusa/commit/cf0297f74af1b043363ffbd5a23ca0933097a69d), [`1f5f50010ae42f8d5b9924edcd75612b1f336463`](https://github.com/medusajs/medusa/commit/1f5f50010ae42f8d5b9924edcd75612b1f336463)]:
+  - @medusajs/framework@2.8.4
+  - @medusajs/file@2.8.4
+  - @medusajs/file-local@2.8.4
+  - @medusajs/file-s3@2.8.4
+  - @medusajs/core-flows@2.8.4
+  - @medusajs/analytics@2.8.4
+  - @medusajs/api-key@2.8.4
+  - @medusajs/auth@2.8.4
+  - @medusajs/cache-inmemory@2.8.4
+  - @medusajs/cache-redis@2.8.4
+  - @medusajs/cart@2.8.4
+  - @medusajs/currency@2.8.4
+  - @medusajs/customer@2.8.4
+  - @medusajs/event-bus-local@2.8.4
+  - @medusajs/event-bus-redis@2.8.4
+  - @medusajs/fulfillment@2.8.4
+  - @medusajs/index@2.8.4
+  - @medusajs/inventory@2.8.4
+  - @medusajs/link-modules@2.8.4
+  - @medusajs/locking@2.8.4
+  - @medusajs/notification@2.8.4
+  - @medusajs/order@2.8.4
+  - @medusajs/payment@2.8.4
+  - @medusajs/pricing@2.8.4
+  - @medusajs/product@2.8.4
+  - @medusajs/promotion@2.8.4
+  - @medusajs/analytics-local@2.8.4
+  - @medusajs/analytics-posthog@2.8.4
+  - @medusajs/auth-emailpass@2.8.4
+  - @medusajs/auth-github@2.8.4
+  - @medusajs/auth-google@2.8.4
+  - @medusajs/fulfillment-manual@2.8.4
+  - @medusajs/locking-postgres@2.8.4
+  - @medusajs/locking-redis@2.8.4
+  - @medusajs/notification-local@2.8.4
+  - @medusajs/notification-sendgrid@2.8.4
+  - @medusajs/payment-stripe@2.8.4
+  - @medusajs/region@2.8.4
+  - @medusajs/sales-channel@2.8.4
+  - @medusajs/stock-location@2.8.4
+  - @medusajs/store@2.8.4
+  - @medusajs/tax@2.8.4
+  - @medusajs/user@2.8.4
+  - @medusajs/workflow-engine-inmemory@2.8.4
+  - @medusajs/workflow-engine-redis@2.8.4
+  - @medusajs/admin-bundler@2.8.4
+  - @medusajs/telemetry@2.8.4
+
 ## 2.8.3
 
 ### Patch Changes

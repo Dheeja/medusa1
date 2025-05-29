@@ -1,5 +1,17 @@
 # @medusajs/dashboard
 
+## 2.8.4
+
+### Patch Changes
+
+- [#12522](https://github.com/medusajs/medusa/pull/12522) [`341a8bb7eeac18460b0e466bda1f4b148e566495`](https://github.com/medusajs/medusa/commit/341a8bb7eeac18460b0e466bda1f4b148e566495) Thanks [@fPolic](https://github.com/fPolic)! - fix(dashboard): combobox initial item cache
+
+- Updated dependencies []:
+  - @medusajs/js-sdk@2.8.4
+  - @medusajs/admin-shared@2.8.4
+  - @medusajs/icons@2.8.4
+  - @medusajs/ui@4.0.14
+
 ## 2.8.3
 
 ### Patch Changes
