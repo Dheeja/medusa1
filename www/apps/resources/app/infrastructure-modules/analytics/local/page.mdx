@@ -33,10 +33,12 @@ module.exports = defineConfig({
     {
       resolve: "@medusajs/medusa/analytics",
       options: {
-        provider: {
-          resolve: "@medusajs/analytics-local",
-          id: "local",
-        },
+        providers: [
+          {
+            resolve: "@medusajs/analytics-local",
+            id: "local",
+          }
+        ],
       },
     },
   ],
